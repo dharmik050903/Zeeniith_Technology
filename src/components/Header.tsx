@@ -59,20 +59,26 @@ const Header = () => {
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden'
+      document.body.style.position = 'fixed'
+      document.body.style.width = '100%'
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
     }
     return () => {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
     }
   }, [mobileMenuOpen])
 
   return (
     <header
-      className={`fixed top-1.5 sm:top-2 md:top-4 left-1/2 -translate-x-1/2 z-[100] w-[98%] xs:w-[96%] sm:w-[92%] md:w-[85%] lg:w-[80%] max-w-[1400px] flex items-center justify-between transition-all duration-300 rounded-lg sm:rounded-xl md:rounded-[20px] ${
+      className={`fixed top-1 sm:top-1.5 md:top-2 lg:top-4 left-1/2 -translate-x-1/2 z-[100] w-[98%] xs:w-[96%] sm:w-[92%] md:w-[85%] lg:w-[80%] max-w-[1400px] flex items-center justify-between transition-all duration-300 rounded-lg sm:rounded-xl md:rounded-[20px] ${
         scrolled
-          ? 'bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-xl border border-gray-200/30 dark:border-[#282e39]/30 shadow-2xl py-2 xs:py-2.5 sm:py-3 md:py-4 lg:py-6'
-          : 'bg-background-light/60 dark:bg-background-dark/60 backdrop-blur-sm border border-gray-200/20 dark:border-[#282e39]/20 shadow-md py-2.5 xs:py-3 sm:py-3.5 md:py-4 lg:py-7'
+          ? 'bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-xl border border-gray-200/30 dark:border-[#282e39]/30 shadow-2xl py-1.5 xs:py-2 sm:py-2.5 md:py-3 lg:py-6'
+          : 'bg-background-light/60 dark:bg-background-dark/60 backdrop-blur-sm border border-gray-200/20 dark:border-[#282e39]/20 shadow-md py-2 xs:py-2.5 sm:py-3 md:py-4 lg:py-7'
       }`}
     >
       <div className="w-full px-2 xs:px-3 sm:px-4 md:px-8 lg:px-10 flex items-center justify-between gap-1.5 xs:gap-2 sm:gap-3 md:gap-4">

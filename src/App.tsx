@@ -21,7 +21,7 @@ function App() {
       <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
         <Header />
         <div className="layout-container flex h-full grow flex-col">
-          <div className="px-0 sm:px-0 md:px-0 lg:px-0 flex flex-1 justify-center pt-32 pb-5">
+          <div className="px-0 sm:px-0 md:px-0 lg:px-0 flex flex-1 justify-center pt-16 xs:pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-5">
             <div className="layout-content-container flex flex-col w-full max-w-[1400px] flex-1 px-4 sm:px-10 md:px-20 lg:px-40">
               <main className="flex flex-col flex-1 page-transition">
                 <Routes>
