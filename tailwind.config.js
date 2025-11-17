@@ -9,6 +9,8 @@ export default {
     extend: {
       screens: {
         'xs': '475px',
+        'tablet': '642px',
+        'desktop': '757px',
       },
       colors: {
         "primary": "#256af4",

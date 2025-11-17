@@ -74,26 +74,23 @@ const Header = () => {
   }, [mobileMenuOpen])
 
   return (
-    <header
-      className={`fixed top-1 sm:top-1.5 md:top-2 lg:top-4 left-1/2 -translate-x-1/2 z-[100] w-[98%] xs:w-[96%] sm:w-[92%] md:w-[85%] lg:w-[80%] max-w-[1400px] flex items-center justify-between transition-all duration-300 rounded-lg sm:rounded-xl md:rounded-[20px] ${
-        scrolled
-          ? 'bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-xl border border-gray-200/30 dark:border-[#282e39]/30 shadow-2xl py-1.5 xs:py-2 sm:py-2.5 md:py-3 lg:py-6'
-          : 'bg-background-light/60 dark:bg-background-dark/60 backdrop-blur-sm border border-gray-200/20 dark:border-[#282e39]/20 shadow-md py-2 xs:py-2.5 sm:py-3 md:py-4 lg:py-7'
-      }`}
-    >
-      <div className="w-full px-2 xs:px-3 sm:px-4 md:px-8 lg:px-10 flex items-center justify-between gap-1.5 xs:gap-2 sm:gap-3 md:gap-4">
-        <Link to="/" className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 group min-w-0 flex-1 sm:flex-initial">
-          <div className="size-6 xs:size-7 sm:size-8 flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/20 group-hover:bg-primary/20 dark:group-hover:bg-primary/30 transition-colors flex-shrink-0">
-            <Logo />
-          </div>
-          <div className="flex flex-col min-w-0 max-w-[140px] xs:max-w-[180px] sm:max-w-none">
-            <h2 className="text-slate-900 dark:text-white text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg font-bold leading-tight tracking-[-0.015em] group-hover:text-primary dark:group-hover:text-primary transition-colors truncate">
-              <span className="hidden xs:inline sm:hidden">Macrocosm</span>
-              <span className="hidden sm:inline">MacrocosmTech</span>
-              <span className="xs:hidden">MT</span>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-[100] w-full flex items-center justify-center transition-all duration-300 ${
+          scrolled
+            ? 'bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-xl border-b border-gray-200/30 dark:border-[#282e39]/30 shadow-lg py-3 sm:py-3.5 md:py-4'
+            : 'bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-lg border-b border-gray-200/20 dark:border-[#282e39]/20 shadow-md py-3.5 sm:py-4 md:py-5'
+        }`}
+      >
+        <div className="w-full max-w-[1400px] px-4 sm:px-6 md:px-8 lg:px-10 flex items-center justify-between gap-3 sm:gap-4 md:gap-6">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0">
+            <div className="size-8 sm:size-9 md:size-10 flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/20 group-hover:bg-primary/20 dark:group-hover:bg-primary/30 transition-colors flex-shrink-0">
+              <Logo />
+            </div>
+            <h2 className="text-slate-900 dark:text-white text-base sm:text-lg md:text-xl font-bold leading-tight tracking-[-0.015em] group-hover:text-primary dark:group-hover:text-primary transition-colors whitespace-nowrap">
+              MacrocosmTech
             </h2>
-          </div>
-        </Link>
+          </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex flex-1 justify-end gap-4 lg:gap-6 items-center min-w-0">
@@ -135,15 +132,16 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 xs:h-9 sm:h-10 w-8 xs:w-9 sm:w-10 bg-slate-200 dark:bg-[#282e39] text-slate-900 dark:text-white hover:bg-slate-300 dark:hover:bg-[#1e2533] transition-all active:scale-95 flex-shrink-0 ml-1 xs:ml-0"
+          className="md:hidden flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 sm:h-11 w-10 sm:w-11 bg-slate-200 dark:bg-[#282e39] text-slate-900 dark:text-white hover:bg-slate-300 dark:hover:bg-[#1e2533] transition-all active:scale-95 flex-shrink-0"
           aria-label="Toggle menu"
           aria-expanded={mobileMenuOpen}
         >
-          <span className="material-symbols-outlined text-base xs:text-lg sm:text-xl">
+          <span className="material-symbols-outlined text-xl sm:text-2xl">
             {mobileMenuOpen ? 'close' : 'menu'}
           </span>
         </button>
-      </div>
+        </div>
+      </header>
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
@@ -216,7 +214,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </header>
+    </>
   )
 }
 

@@ -133,7 +133,7 @@ const Home = () => {
       />
       <div
         ref={heroRef}
-        className="relative w-screen left-1/2 -translate-x-1/2 -mt-16 xs:-mt-20 sm:-mt-24 md:-mt-28 lg:-mt-32 pt-16 xs:pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-20 md:pb-32 min-h-screen flex items-center justify-center overflow-hidden z-0"
+        className="relative w-screen left-1/2 -translate-x-1/2 -mt-20 sm:-mt-24 md:-mt-28 lg:-mt-32 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-20 md:pb-32 min-h-screen flex items-center justify-center overflow-hidden z-0"
         style={{ minHeight: '100vh' }}
       >
         {/* Video Background with Zoom Effect */}
