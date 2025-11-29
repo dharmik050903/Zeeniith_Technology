@@ -160,23 +160,23 @@ const Services = () => {
             <div className="flex flex-col gap-4">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 dark:bg-primary/30 backdrop-blur-sm rounded-full w-fit border border-primary/30">
                 <span className="material-symbols-outlined text-primary text-lg">rocket_launch</span>
-                <span className="text-primary text-sm font-bold">Our Services</span>
+                <span className="text-primary text-xs font-bold">Our Services</span>
               </div>
               <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-[-0.033em] drop-shadow-lg">
                 Comprehensive Technology & Marketing Solutions
               </h1>
-              <p className="text-white/90 dark:text-white/80 text-base md:text-lg leading-relaxed max-w-2xl drop-shadow-md">
+              <p className="text-white/90 dark:text-white/80 text-sm md:text-base leading-relaxed max-w-2xl drop-shadow-md">
                 Smart, scalable, and secure solutions designed to accelerate your business growth
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/contact">
-                <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
+                <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
                   <span className="truncate">Get Started Today</span>
                 </button>
               </Link>
               <Link to="/portfolio">
-                <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-transparent border-2 border-white/80 text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-white/10 dark:hover:bg-white/20 transition-all backdrop-blur-sm">
+                <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-transparent border-2 border-white/80 text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-white/10 dark:hover:bg-white/20 transition-all backdrop-blur-sm">
                   <span className="truncate">View Our Work</span>
                 </button>
               </Link>
@@ -191,7 +191,7 @@ const Services = () => {
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-[-0.015em] mb-2 xs:mb-3 sm:mb-4">
             Software Development - Smart, Scalable and Secure Solutions
           </h2>
-          <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto px-2">
+          <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto px-2">
             Transform your business vision into powerful, scalable reality
           </p>
         </div>
@@ -237,7 +237,7 @@ const Services = () => {
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed text-justify">
+                <p className="text-xs text-slate-600 dark:text-gray-400 leading-relaxed text-justify">
                   {service.description}
                 </p>
               </div>
@@ -265,7 +265,7 @@ const Services = () => {
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] mb-4">
               Our Development Process
             </h2>
-            <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
+            <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
               A proven methodology that ensures success from concept to launch
             </p>
           </div>
@@ -289,7 +289,7 @@ const Services = () => {
                     )}
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">{step.title}</h3>
-                  <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed">{step.desc}</p>
+                  <p className="text-xs text-slate-600 dark:text-gray-400 leading-relaxed">{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -304,7 +304,7 @@ const Services = () => {
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] mb-4">
               Our Technology Stack
             </h2>
-            <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
+            <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
               Cutting-edge tools and frameworks we use to build exceptional solutions
             </p>
           </div>
@@ -354,7 +354,7 @@ const Services = () => {
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] mb-4">
               Why Choose ZEENIITH - Top Software Development Company in Anand
             </h2>
-            <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
+            <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
               What sets us apart in delivering exceptional results
             </p>
           </div>
@@ -428,7 +428,7 @@ const Services = () => {
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] mb-4">
               Success Stories
             </h2>
-            <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
+            <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
               Real results from real clients
             </p>
           </div>
@@ -495,7 +495,7 @@ const Services = () => {
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
+            <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
               Everything you need to know about our services
             </p>
           </div>

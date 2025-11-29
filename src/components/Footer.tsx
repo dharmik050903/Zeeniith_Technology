@@ -16,7 +16,7 @@ const Footer = () => {
               />
             </div>
           </Link>
-          <p className="text-left text-sm xs:text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl flex-1 leading-relaxed">
+          <p className="text-left text-xs xs:text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl flex-1 leading-relaxed">
             Building digital universes with innovative software solutions and data-driven marketing strategies.
           </p>
         </div>
@@ -28,7 +28,7 @@ const Footer = () => {
             <h3 className="text-base xs:text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
               Company
             </h3>
-            <div className="flex flex-col gap-3 text-sm xs:text-base text-gray-600 dark:text-gray-300">
+            <div className="flex flex-col gap-3 text-xs xs:text-sm text-gray-600 dark:text-gray-300">
               <Link to="/about" className="hover:text-primary transition-colors">
                 About Us
               </Link>
@@ -52,9 +52,9 @@ const Footer = () => {
             <h3 className="text-base xs:text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
               Address
             </h3>
-            <div className="flex flex-col gap-2 text-sm xs:text-base text-gray-600 dark:text-gray-300">
+            <div className="flex flex-col gap-2 text-xs xs:text-sm text-gray-600 dark:text-gray-300">
               <p className="leading-relaxed">
-                121 Narayan Empire, A.V. Road,<br />
+                120 Narayan Empire, A.V. Road,<br />
                 Anand, Gujarat 388120,<br />
                 India
               </p>
@@ -66,7 +66,7 @@ const Footer = () => {
             <h3 className="text-base xs:text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
               Contact
             </h3>
-            <div className="flex flex-col gap-2 text-sm xs:text-base text-gray-600 dark:text-gray-300">
+            <div className="flex flex-col gap-2 text-xs xs:text-sm text-gray-600 dark:text-gray-300">
               <p>Phone: [ADD YOUR PHONE NUMBER]</p>
               <p>Email: [ADD YOUR EMAIL]</p>
             </div>

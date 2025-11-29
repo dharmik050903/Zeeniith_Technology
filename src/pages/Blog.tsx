@@ -137,12 +137,12 @@ const Blog = () => {
               <div className="flex flex-col gap-3 sm:gap-4">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 dark:bg-white/80 backdrop-blur-md rounded-full w-fit border-2 border-white/50 shadow-lg">
                   <span className="material-symbols-outlined text-primary text-lg">article</span>
-                  <span className="text-primary text-sm font-bold">Our Blog</span>
+                  <span className="text-primary text-xs font-bold">Our Blog</span>
                 </div>
                 <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-[-0.033em] drop-shadow-lg px-2">
                   Insights & Updates
                 </h1>
-                <h2 className="text-white/90 dark:text-white/80 text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-relaxed max-w-2xl mx-auto drop-shadow-md px-2">
+                <h2 className="text-white/90 dark:text-white/80 text-xs sm:text-sm md:text-base lg:text-lg font-normal leading-relaxed max-w-2xl mx-auto drop-shadow-md px-2">
                   Stay updated with the latest trends, insights, and updates from the world of software development, design, and technology.
                 </h2>
               </div>
@@ -158,7 +158,7 @@ const Blog = () => {
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  className={`px-4 py-2 rounded-full text-xs font-medium transition-all ${
                     activeCategory === category
                       ? 'bg-primary text-white shadow-lg'
                       : 'bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10'
@@ -174,7 +174,11 @@ const Blog = () => {
         {/* Blog Posts Grid */}
         <section className="px-2 xs:px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10">
+            <div className={`grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 ${
+              filteredPosts.length === 4 ? 'grid-4-items' : 
+              filteredPosts.length === 5 ? 'grid-5-items' : 
+              filteredPosts.length === 6 ? 'grid-6-items' : ''
+            }`}>
               {filteredPosts.map((post) => (
                 <article
                   key={post.id}
@@ -212,10 +216,10 @@ const Blog = () => {
                       <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-2">
                         {post.title}
                       </h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3 flex-1 text-justify">
+                      <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3 flex-1">
                         {post.excerpt}
                       </p>
-                      <Link to={`/blog/${post.id}`} className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all group/link">
+                      <Link to={`/blog/${post.id}`} className="inline-flex items-center gap-2 text-primary font-semibold text-xs hover:gap-3 transition-all group/link">
                         Read More
                         <span className="material-symbols-outlined text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
                       </Link>
@@ -235,7 +239,7 @@ const Blog = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-[-0.015em]">
             Stay Updated
           </h2>
-          <p className="max-w-xl text-white/90 text-base md:text-lg">
+          <p className="max-w-xl text-white/90 text-sm md:text-base">
             Subscribe to our newsletter and never miss an update. Get the latest insights delivered straight to your inbox.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">

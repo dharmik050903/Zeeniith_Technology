@@ -171,18 +171,18 @@ const Home = () => {
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-[-0.033em] text-white drop-shadow-lg px-2">
               Custom Software Development and ROI-Driven Digital Marketing Solutions
             </h1>
-            <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-normal leading-normal text-white/90 drop-shadow-md px-2 max-w-4xl mx-auto">
+            <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-normal text-white/90 drop-shadow-md px-2 max-w-4xl mx-auto">
               We design and develop custom software, websites, mobile apps, Run result-driven digital marketing campaigns tailored to your business growth. Transform your vision into reality with India's trusted software development company.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 xs:gap-4 sm:gap-5">
             <Link to="/contact">
-              <button className="flex min-w-[120px] xs:min-w-[140px] sm:min-w-[160px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 xs:h-11 sm:h-12 md:h-14 lg:h-16 px-4 xs:px-5 sm:px-6 md:px-8 bg-primary text-white text-sm xs:text-base sm:text-lg md:text-xl font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity shadow-lg">
+              <button className="flex min-w-[120px] xs:min-w-[140px] sm:min-w-[160px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 xs:h-11 sm:h-12 md:h-14 lg:h-16 px-4 xs:px-5 sm:px-6 md:px-8 bg-primary text-white text-xs xs:text-sm sm:text-base md:text-lg font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity shadow-lg">
                 <span className="truncate">Get a Free Consultation Today!</span>
               </button>
             </Link>
             <Link to="/contact">
-              <button className="flex min-w-[120px] xs:min-w-[140px] sm:min-w-[160px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 xs:h-11 sm:h-12 md:h-14 lg:h-16 px-4 xs:px-5 sm:px-6 md:px-8 bg-transparent border-2 border-white text-white text-sm xs:text-base sm:text-lg md:text-xl font-bold leading-normal tracking-[0.015em] hover:bg-white/10 transition-colors shadow-lg">
+              <button className="flex min-w-[120px] xs:min-w-[140px] sm:min-w-[160px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 xs:h-11 sm:h-12 md:h-14 lg:h-16 px-4 xs:px-5 sm:px-6 md:px-8 bg-transparent border-2 border-white text-white text-xs xs:text-sm sm:text-base md:text-lg font-bold leading-normal tracking-[0.015em] hover:bg-white/10 transition-colors shadow-lg">
                 <span className="truncate">Book a Free Call Now!</span>
               </button>
             </Link>
@@ -273,7 +273,7 @@ const Home = () => {
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-[-0.015em] mb-2 xs:mb-3 sm:mb-4">
             About ZEENIITH - Your Trusted Technology Partner
           </h2>
-          <div className="max-w-6xl mx-auto text-left px-2 xs:px-4 sm:px-6 space-y-4 text-sm xs:text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300">
+          <div className="max-w-6xl mx-auto text-left px-2 xs:px-4 sm:px-6 space-y-4 text-xs xs:text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300">
             <p className="text-justify">
               ZEENIITH is a leading software development and digital marketing company based in Anand, Gujarat, committed to delivering innovative technology solutions that drive business growth. As one of the top software development companies in Anand, we combine technical expertise with strategic digital marketing to transform your business.
             </p>
@@ -286,7 +286,7 @@ const Home = () => {
           </div>
           <div className="max-w-5xl mx-auto mt-8 xs:mt-10 sm:mt-12 text-center px-2 xs:px-4 sm:px-6">
             <h3 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-6 xs:mb-8 sm:mb-10 text-gray-900 dark:text-white">Why Businesses Trust ZEENIITH</h3>
-            <ul className="space-y-3 xs:space-y-4 text-sm xs:text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 list-disc list-inside text-left max-w-4xl mx-auto">
+            <ul className="space-y-3 xs:space-y-4 text-xs xs:text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300 list-disc list-inside text-left max-w-4xl mx-auto">
               <li>Proven expertise in custom software development</li>
               <li>Comprehensive services across software and marketing</li>
               <li>Client-centric approach with transparent communication</li>
@@ -347,13 +347,13 @@ const Home = () => {
                       {project.title}
                     </h3>
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-grow leading-relaxed text-justify">
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-4 flex-grow leading-relaxed text-justify">
                     {project.description}
                   </p>
                   <div className="pt-3 border-t border-gray-200 dark:border-[#282e39] space-y-2">
                     <div>
                       <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Result:</p>
-                      <p className="text-sm font-bold text-primary">{project.result}</p>
+                      <p className="text-xs font-bold text-primary">{project.result}</p>
                     </div>
                     <div>
                       <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Technologies:</p>
@@ -367,7 +367,7 @@ const Home = () => {
         </div>
         <div className="text-center pt-4 xs:pt-6 sm:pt-8 md:pt-10">
           <Link to="/portfolio">
-            <button className="flex min-w-[120px] xs:min-w-[140px] sm:min-w-[160px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 xs:h-11 sm:h-12 md:h-14 px-4 xs:px-5 sm:px-6 md:px-8 bg-primary text-white text-sm xs:text-base sm:text-lg font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity mx-auto">
+            <button className="flex min-w-[120px] xs:min-w-[140px] sm:min-w-[160px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 xs:h-11 sm:h-12 md:h-14 px-4 xs:px-5 sm:px-6 md:px-8 bg-primary text-white text-xs xs:text-sm sm:text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity mx-auto">
               <span className="truncate">View All Projects</span>
             </button>
           </Link>
@@ -387,7 +387,7 @@ const Home = () => {
               <h3 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-1 xs:mb-2">
                 <AnimatedCounter target={stat.number} suffix={stat.suffix} duration={2000} shouldAnimate={shouldAnimateStats} />
               </h3>
-              <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 px-1">{stat.label}</p>
+              <p className="text-xs xs:text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 px-1">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -399,7 +399,7 @@ const Home = () => {
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-[-0.015em] mb-2 xs:mb-3 sm:mb-4">
             What We Do
           </h2>
-          <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2">
+          <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2">
             We transform ideas into powerful digital experiences that drive results and exceed expectations.
           </p>
         </div>
@@ -432,9 +432,9 @@ const Home = () => {
                 {service.icon}
               </span>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">{service.title}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-grow text-justify">{service.description}</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed flex-grow text-justify">{service.description}</p>
               <Link to="/services" className="mt-auto">
-                <button className="text-primary font-semibold hover:underline text-sm">
+                <button className="text-primary font-semibold hover:underline text-xs">
                   {service.buttonText}
                 </button>
               </Link>
@@ -443,7 +443,7 @@ const Home = () => {
         </div>
         <div className="text-center pt-8">
           <Link to="/services">
-            <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity mx-auto">
+            <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity mx-auto">
               <span className="truncate">Explore All Services</span>
             </button>
           </Link>
@@ -456,7 +456,7 @@ const Home = () => {
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-[-0.015em] mb-2 xs:mb-3 sm:mb-4">
             Why Choose ZEENIITH
           </h2>
-          <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2">
+          <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2">
             We're not just developers—we're your partners in digital transformation.
           </p>
         </div>
@@ -483,7 +483,7 @@ const Home = () => {
                 <span className="material-symbols-outlined text-3xl">{feature.icon}</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{feature.title}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 text-justify">{feature.description}</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400 text-justify">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -495,7 +495,7 @@ const Home = () => {
           <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] mb-4">
             Our Process
           </h2>
-          <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             A proven methodology that ensures success from concept to launch.
           </p>
         </div>
@@ -511,7 +511,7 @@ const Home = () => {
                 <span className="text-primary text-2xl font-bold">{step.number}</span>
               </div>
               <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{step.title}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">{step.desc}</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400">{step.desc}</p>
             </div>
           ))}
         </div>
@@ -581,7 +581,7 @@ const Home = () => {
                   <span key={i} className="text-yellow-400 text-lg">★</span>
                 ))}
               </div>
-              <p className="text-gray-700 dark:text-gray-300 italic flex-grow">"{testimonial.quote}"</p>
+                      <p className="text-xs text-gray-700 dark:text-gray-300 italic flex-grow">"{testimonial.quote}"</p>
             </div>
           ))}
         </div>
@@ -619,9 +619,9 @@ const Home = () => {
           ].map((post, index) => (
             <div key={index} className="flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-lg h-full">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white">{post.title}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-grow text-justify">{post.excerpt}</p>
+                      <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed flex-grow">{post.excerpt}</p>
               <Link to="/blog">
-                <button className="text-primary font-semibold hover:underline text-sm mt-auto">
+                        <button className="text-primary font-semibold hover:underline text-xs mt-auto">
                   {post.buttonText}
                 </button>
               </Link>
@@ -636,17 +636,17 @@ const Home = () => {
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-[-0.015em] mb-6">
             Ready to Bring Your Vision to Life?
           </h2>
-          <p className="text-lg md:text-xl text-white/90 mb-8">
+                  <p className="text-base md:text-lg text-white/90 mb-8">
             Let's build something amazing together. Whether you need custom software, a stunning website, a mobile app, or a powerful digital marketing strategy - we're here to help you succeed.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
-              <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-8 bg-white text-primary text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+                      <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-8 bg-white text-primary text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
                 <span className="truncate">Grow Your Business Now!</span>
               </button>
             </Link>
             <Link to="/portfolio">
-              <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-8 bg-transparent border-2 border-white text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-white/10 transition-colors">
+                      <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-8 bg-transparent border-2 border-white text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-white/10 transition-colors">
                 <span className="truncate">View Our Work</span>
               </button>
             </Link>

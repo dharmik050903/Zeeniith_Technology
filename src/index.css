@@ -307,10 +307,14 @@ body {
   -moz-text-justify: inter-word;
 }
 
-/* Grid layout for 5 items: center the last 2 items */
+/* Grid layout for 4 items: 2x2 */
+.grid-4-items {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+
+/* Grid layout for 5 items: 3 up, 2 down (centered) */
 .grid-5-items {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr) !important;
 }
 
 .grid-5-items > *:nth-child(4) {
@@ -321,18 +325,22 @@ body {
   grid-column: 3;
 }
 
-/* For responsive: on smaller screens, use 2 columns */
+/* Grid layout for 6 items: 3x2 */
+.grid-6-items {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+/* For responsive: on smaller screens */
 @media (max-width: 1023px) {
-  .grid-5-items {
-    grid-template-columns: repeat(2, 1fr);
+  .grid-4-items,
+  .grid-5-items,
+  .grid-6-items {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   
-  .grid-5-items > *:nth-child(4) {
-    grid-column: 1;
-  }
-  
+  .grid-5-items > *:nth-child(4),
   .grid-5-items > *:nth-child(5) {
-    grid-column: 2;
+    grid-column: auto;
   }
 }
 

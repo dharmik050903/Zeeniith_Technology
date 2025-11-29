@@ -116,11 +116,11 @@ const Portfolio = () => {
                 <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-[-0.033em] drop-shadow-lg px-2">
                   Our Projects - Explore the Impact We've Created
                 </h1>
-                <h2 className="text-white/90 dark:text-white/80 text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-relaxed max-w-2xl mx-auto drop-shadow-md px-2">
+                <h2 className="text-white/90 dark:text-white/80 text-xs sm:text-sm md:text-base lg:text-lg font-normal leading-relaxed max-w-2xl mx-auto drop-shadow-md px-2">
                   Take a look at how our custom software and digital marketing solutions have helped businesses achieve remarkable results.
                 </h2>
               </div>
-              <button className="flex min-w-[100px] sm:min-w-[120px] w-fit max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 sm:h-12 px-4 sm:px-6 bg-primary text-white text-sm sm:text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
+              <button className="flex min-w-[100px] sm:min-w-[120px] w-fit max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 sm:h-12 px-4 sm:px-6 bg-primary text-white text-xs sm:text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
                 <span className="truncate">Our Work</span>
               </button>
             </div>
@@ -139,7 +139,7 @@ const Portfolio = () => {
                     : 'bg-slate-200 dark:bg-[#282e39] text-slate-700 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/10'
                 }`}
               >
-                <p className="text-sm font-medium leading-normal">{filter}</p>
+                <p className="text-xs font-medium leading-normal">{filter}</p>
               </button>
             ))}
           </div>
@@ -155,7 +155,7 @@ const Portfolio = () => {
                 role="img"
                 aria-label={project.alt}
               >
-                <p className="text-white text-xl font-bold leading-tight w-full line-clamp-2">
+                <p className="text-white text-lg font-bold leading-tight w-full line-clamp-2">
                   {project.title}
                 </p>
               </div>
@@ -174,14 +174,14 @@ const Portfolio = () => {
               aria-label="Portrait of Jane Doe, CEO of Starlight Inc."
             />
             <div className="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-2 p-6 @xl:px-8">
-              <p className="text-primary dark:text-primary text-sm font-bold leading-normal uppercase tracking-widest">
+              <p className="text-primary dark:text-primary text-xs font-bold leading-normal uppercase tracking-widest">
                 Client Testimonial
               </p>
-              <p className="text-slate-800 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] @[480px]:text-2xl">
+              <p className="text-slate-800 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] @[480px]:text-xl">
                 "ZEENIITH didn't just build a product; they crafted an experience. Their attention to detail is exceptional and the results speak for themselves."
               </p>
               <div className="flex items-end gap-3 justify-between pt-2">
-                <p className="text-slate-600 dark:text-slate-400 text-base font-normal leading-normal">
+                <p className="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">
                   Vikram Singh, CEO at Starlight Inc.
                 </p>
               </div>
@@ -206,7 +206,7 @@ const Portfolio = () => {
                   <span className="material-symbols-outlined text-3xl">{stat.icon}</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-primary mb-2">{stat.number}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -249,23 +249,23 @@ const Portfolio = () => {
                 <div className="p-6 flex flex-col gap-4 flex-grow min-h-0">
                   <div className="flex items-center justify-between">
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white">{caseStudy.title}</h3>
-                    <span className="text-primary text-sm font-bold px-3 py-1 bg-primary/10 rounded-full">
+                    <span className="text-primary text-xs font-bold px-3 py-1 bg-primary/10 rounded-full">
                       {caseStudy.category}
                     </span>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Challenge:</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 text-justify">{caseStudy.challenge}</p>
+                    <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Challenge:</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 text-justify">{caseStudy.challenge}</p>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Solution:</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 text-justify">{caseStudy.solution}</p>
+                    <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Solution:</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 text-justify">{caseStudy.solution}</p>
                   </div>
                   <div className="pt-2 border-t border-gray-200 dark:border-[#282e39]">
-                    <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Results:</p>
+                    <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">Results:</p>
                     <ul className="space-y-1">
                       {caseStudy.results.map((result, i) => (
-                        <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                        <li key={i} className="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-2">
                           <span className="material-symbols-outlined text-primary text-lg">check_circle</span>
                           {result}
                         </li>
@@ -313,7 +313,7 @@ const Portfolio = () => {
                     <span key={star} className="material-symbols-outlined text-xl">star</span>
                   ))}
                 </div>
-                <p className="text-sm text-gray-700 dark:text-gray-300 italic flex-grow">"{testimonial.quote}"</p>
+                <p className="text-xs text-gray-700 dark:text-gray-300 italic flex-grow">"{testimonial.quote}"</p>
                 <div className="pt-2 border-t border-gray-200 dark:border-[#282e39] flex-shrink-0">
                   <p className="font-bold text-gray-900 dark:text-white truncate">{testimonial.author}</p>
                   <p className="text-xs text-gray-600 dark:text-gray-400 truncate">

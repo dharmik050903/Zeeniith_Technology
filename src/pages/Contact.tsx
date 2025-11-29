@@ -42,18 +42,18 @@ const Contact = () => {
               <h1 className="text-4xl font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-white md:text-5xl">
                 Get in Touch with ZEENIITH
               </h1>
-              <p className="text-base font-normal leading-normal text-gray-500 dark:text-gray-400">
+              <p className="text-sm font-normal leading-normal text-gray-500 dark:text-gray-400">
                 We're here to answer your questions and discuss how we can help your business grow.
               </p>
             </div>
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <label className="flex flex-col">
-                    <p className="pb-2 text-base font-medium text-gray-700 dark:text-gray-300">
+                    <p className="pb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
                       Name
                     </p>
                     <input
-                      className="form-input flex w-full flex-1 resize-none overflow-hidden rounded-lg border border-gray-300 bg-white p-4 text-base font-normal leading-normal text-gray-900 placeholder:text-gray-400 focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/20 dark:border-white/20 dark:bg-white/5 dark:text-white dark:placeholder:text-gray-500 dark:focus:border-primary"
+                      className="form-input flex w-full flex-1 resize-none overflow-hidden rounded-lg border border-gray-300 bg-white p-4 text-sm font-normal leading-normal text-gray-900 placeholder:text-gray-400 focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/20 dark:border-white/20 dark:bg-white/5 dark:text-white dark:placeholder:text-gray-500 dark:focus:border-primary"
                       placeholder="Your full name"
                       type="text"
                       name="name"
@@ -63,11 +63,11 @@ const Contact = () => {
                     />
                   </label>
                   <label className="flex flex-col">
-                    <p className="pb-2 text-base font-medium text-gray-700 dark:text-gray-300">
+                    <p className="pb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
                       Company
                     </p>
                     <input
-                      className="form-input flex w-full flex-1 resize-none overflow-hidden rounded-lg border border-gray-300 bg-white p-4 text-base font-normal leading-normal text-gray-900 placeholder:text-gray-400 focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/20 dark:border-white/20 dark:bg-white/5 dark:text-white dark:placeholder:text-gray-500 dark:focus:border-primary"
+                      className="form-input flex w-full flex-1 resize-none overflow-hidden rounded-lg border border-gray-300 bg-white p-4 text-sm font-normal leading-normal text-gray-900 placeholder:text-gray-400 focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/20 dark:border-white/20 dark:bg-white/5 dark:text-white dark:placeholder:text-gray-500 dark:focus:border-primary"
                       placeholder="Your company"
                       type="text"
                       name="company"
@@ -95,7 +95,7 @@ const Contact = () => {
                     Message
                   </p>
                   <textarea
-                    className="form-textarea flex w-full min-h-[140px] resize-y overflow-hidden rounded-lg border border-gray-300 bg-white p-4 text-base font-normal leading-normal text-gray-900 placeholder:text-gray-400 focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/20 dark:border-white/20 dark:bg-white/5 dark:text-white dark:placeholder:text-gray-500 dark:focus:border-primary"
+                    className="form-textarea flex w-full min-h-[140px] resize-y overflow-hidden rounded-lg border border-gray-300 bg-white p-4 text-sm font-normal leading-normal text-gray-900 placeholder:text-gray-400 focus:border-primary focus:outline-0 focus:ring-2 focus:ring-primary/20 dark:border-white/20 dark:bg-white/5 dark:text-white dark:placeholder:text-gray-500 dark:focus:border-primary"
                     placeholder="Tell us about your project..."
                     name="message"
                     value={formData.message}
@@ -104,7 +104,7 @@ const Contact = () => {
                   />
                 </label>
                 <button
-                  className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark"
+                  className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark"
                   type="submit"
                 >
                   <span className="truncate">Send Message</span>
@@ -116,7 +116,7 @@ const Contact = () => {
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                   Contact Information
                 </h3>
-                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
                   Find us at our office or drop us a line.
                 </p>
                 <div className="mt-6 space-y-4">
@@ -128,8 +128,8 @@ const Contact = () => {
                       <p className="font-semibold text-gray-800 dark:text-gray-200">
                         Our Office
                       </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        121 Narayan Empire, A.V. Road, Anand, Gujarat 388120, India
+                      <p className="text-xs text-gray-600 dark:text-gray-400">
+                        120 Narayan Empire, A.V. Road, Anand, Gujarat 388120, India
                       </p>
                     </div>
                   </div>
@@ -142,7 +142,7 @@ const Contact = () => {
                         Email Us
                       </p>
                       <a
-                        className="text-sm text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                        className="text-xs text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
                         href="mailto:[ADD YOUR EMAIL]"
                       >
                         [ADD YOUR EMAIL]
@@ -158,7 +158,7 @@ const Contact = () => {
                         Call Us
                       </p>
                       <a
-                        className="text-sm text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                        className="text-xs text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
                         href="tel:[ADD YOUR PHONE NUMBER]"
                       >
                         [ADD YOUR PHONE NUMBER]
@@ -171,12 +171,12 @@ const Contact = () => {
                 <iframe
                   allowFullScreen
                   className="dark:invert dark:grayscale w-full h-full"
-                  data-location="San Francisco"
+                  data-location="Narayan Empire, Anand"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.225578399991!2d-122.4194156846817!3d37.77492957975991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c1a1f3373%3A0x1b41505c040a69a!2sSan%20Francisco%20City%20Hall!5e0!3m2!1sen!2sus!4v1678886400000!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.5!2d72.9289!3d22.5645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e4b5b5b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sNarayan%20Empire%2C%20A.V.%20Road%2C%20Anand%2C%20Gujarat%20388120%2C%20India!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                   style={{ border: 0 }}
-                  title="Zeeniith Location"
+                  title="Zeeniith Location - Narayan Empire, Anand"
                 />
               </div>
               <div>
@@ -273,7 +273,7 @@ const Contact = () => {
                   <span className="material-symbols-outlined text-3xl">{feature.icon}</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">{feature.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 flex-grow text-justify">{feature.description}</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400 flex-grow text-justify">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -312,7 +312,7 @@ const Contact = () => {
             {[
               {
                 question: 'Where is ZEENIITH located?',
-                answer: 'We\'re based in Anand, Gujarat, India. Our address: 121 Narayan Empire, A.V. Road, Anand, Gujarat 388120.',
+                answer: 'We\'re based in Anand, Gujarat, India. Our address: 120 Narayan Empire, A.V. Road, Anand, Gujarat 388120.',
               },
               {
                 question: 'What industries have you worked with?',

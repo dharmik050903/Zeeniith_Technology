@@ -179,17 +179,17 @@ const About = () => {
               <div className="flex flex-col gap-3 sm:gap-4">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 dark:bg-white/80 backdrop-blur-md rounded-full w-fit border-2 border-white/50 shadow-lg">
                   <span className="material-symbols-outlined text-primary text-lg">groups</span>
-                  <span className="text-primary text-sm font-bold">About Us</span>
+                  <span className="text-primary text-xs font-bold">About Us</span>
                 </div>
                 <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-[-0.033em] drop-shadow-lg px-2">
                   About ZEENIITH - Your Trusted Digital Partner
                 </h1>
-                <h2 className="text-white/90 dark:text-white/80 text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-relaxed max-w-2xl mx-auto drop-shadow-md px-2">
+                <h2 className="text-white/90 dark:text-white/80 text-xs sm:text-sm md:text-base lg:text-lg font-normal leading-relaxed max-w-2xl mx-auto drop-shadow-md px-2">
                   We're here to answer your questions and discuss how we can help your business grow.
                 </h2>
               </div>
               <Link to="/contact">
-                <button className="flex min-w-[100px] sm:min-w-[120px] w-fit max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 sm:h-12 px-4 sm:px-6 bg-primary text-white text-sm sm:text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
+                <button className="flex min-w-[100px] sm:min-w-[120px] w-fit max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 sm:h-12 px-4 sm:px-6 bg-primary text-white text-xs sm:text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
                   <span className="truncate">Get in Touch</span>
                 </button>
               </Link>
@@ -205,10 +205,10 @@ const About = () => {
             </h2>
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="flex-1">
-                <p className="text-base md:text-lg font-normal leading-relaxed text-gray-800 dark:text-gray-300 mb-4 text-justify">
+                <p className="text-sm md:text-base font-normal leading-relaxed text-gray-800 dark:text-gray-300 mb-4 text-justify">
                   Founded with a vision to transform businesses through innovative technology, ZEENIITH has emerged as a trusted partner for 100+ companies across India. Our journey began with a simple belief: high-quality software development and digital marketing should be accessible to businesses of all sizes.
                 </p>
-                <p className="text-base md:text-lg font-normal leading-relaxed text-gray-800 dark:text-gray-300 text-justify">
+                <p className="text-sm md:text-base font-normal leading-relaxed text-gray-800 dark:text-gray-300 text-justify">
                   Our team brings together expertise from Fortune 500 companies and successful startups, each member bringing unique perspectives that fuel our innovation and client success.
                 </p>
               </div>
@@ -227,11 +227,11 @@ const About = () => {
                     </h2>
                     <div className="max-w-6xl mx-auto mb-8 text-center">
                       <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">Our Mission</h3>
-                      <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-8 text-justify">
+                      <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-8 text-justify">
                         To empower businesses through innovative technology solutions and data-driven digital marketing strategies that drive sustainable growth and competitive advantage.
                       </p>
                       <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4">Our Vision</h3>
-                      <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 text-justify">
+                      <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 text-justify">
                         To be India's most trusted technology and marketing partner for businesses seeking digital transformation and exceptional growth.
                       </p>
                     </div>
@@ -252,7 +252,7 @@ const About = () => {
                     <span className="material-symbols-outlined text-primary text-3xl">{value.icon}</span>
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">{value.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-grow text-justify">{value.desc}</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed flex-grow text-justify">{value.desc}</p>
                 </div>
               ))}
             </div>
@@ -307,7 +307,7 @@ const About = () => {
                     }`}>
                       <p className="font-bold text-primary text-lg mb-2">{milestone.year}</p>
                       <h3 className="font-bold text-xl mb-2 text-slate-900 dark:text-white">{milestone.title}</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{milestone.desc}</p>
+                      <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">{milestone.desc}</p>
                     </div>
                   </div>
                   <div className={`absolute left-1/2 top-1/2 w-6 h-6 rounded-full border-4 border-white dark:border-[#1C2333] -translate-x-1/2 -translate-y-1/2 z-20 group-hover:scale-125 transition-all duration-500 ${
@@ -388,7 +388,7 @@ const About = () => {
                       <span className="material-symbols-outlined text-primary text-4xl">{culture.icon}</span>
                     </div>
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">{culture.title}</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-grow text-justify">{culture.desc}</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed flex-grow text-justify">{culture.desc}</p>
                   </div>
                 ))}
               </div>
@@ -447,7 +447,7 @@ const About = () => {
                     <span className="material-symbols-outlined text-primary text-2xl mt-1">location_on</span>
                     <div className="flex flex-col gap-1">
                       <h4 className="text-lg font-bold text-slate-900 dark:text-white">Anand, Gujarat, India</h4>
-                      <p className="text-base text-gray-600 dark:text-gray-400">121 Narayan Empire, A.V. Road, Anand, Gujarat 388120, India</p>
+                      <p className="text-base text-gray-600 dark:text-gray-400">120 Narayan Empire, A.V. Road, Anand, Gujarat 388120, India</p>
                     </div>
                   </div>
                 </div>

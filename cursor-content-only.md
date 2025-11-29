@@ -24,7 +24,7 @@ You are adding SEO-optimized content to an existing ZEENIITH website. Your task 
 ## COMPANY INFORMATION (Fill All Placeholders)
 
 **Company Name:** ZEENIITH
-**Location:** 121 Narayan Empire, A.V. Road, Anand, Gujarat 388120, India
+**Location:** 120 Narayan Empire, A.V. Road, Anand, Gujarat 388120, India
 **Phone:** [ADD YOUR PHONE NUMBER]
 **Email:** [ADD YOUR EMAIL]
 
@@ -311,7 +311,7 @@ View Our Work
 
 **Address:**
 ```
-121 Narayan Empire, A.V. Road, Anand, Gujarat 388120, India
+120 Narayan Empire, A.V. Road, Anand, Gujarat 388120, India
 ```
 
 **Phone:**
@@ -1197,7 +1197,7 @@ We're here to answer your questions and discuss how we can help your business gr
 
 **Address:**
 ```
-121 Narayan Empire, A.V. Road, Anand, Gujarat 388120, India
+120 Narayan Empire, A.V. Road, Anand, Gujarat 388120, India
 ```
 
 **Phone:**
@@ -1363,7 +1363,7 @@ Frequently Asked Questions
 **FAQ Category 5: General FAQs**
 
 **Q1:** Where is ZEENIITH located?
-**A1:** We're based in Anand, Gujarat, India. Our address: 121 Narayan Empire, A.V. Road, Anand, Gujarat 388120.
+**A1:** We're based in Anand, Gujarat, India. Our address: 120 Narayan Empire, A.V. Road, Anand, Gujarat 388120.
 
 **Q2:** What industries have you worked with?
 **A2:** We've worked across 50+ industries including startups, healthcare, finance, e-commerce, SaaS, education, real estate, and manufacturing.
