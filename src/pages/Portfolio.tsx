@@ -37,40 +37,35 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: 'Project Nova',
-      category: 'Web App',
-      alt: 'A futuristic dashboard UI for Project Nova',
-      url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC9IfUe8kIKhQGvfjaXXc2o3ET39FoHcpI5tq_aQg8UKTpy3AzUI9YAe1jWoXK3r17xt1QnTNyzwSPmbcCmOuz4dTqyoLNQ8eO921bbSBpRgZ5N2b3B5a19ZlXOI1wqrbSo4cV__Bg0oRt4TNUOuYt_8eyV0CW4UEuNulRsWDWanWaUNFUQ3e8igh9o1pmO_kFj7n-XpV-UjJ7q4jkuL0e0VAOjXQx1mEhzRqx58JqL4m-0W3qTLLxcxCRXfJubhIFTxQHXifonJtrA',
-    },
-    {
-      title: 'Project Helios',
-      category: 'Mobile',
-      alt: 'A sleek mobile app interface for a music streaming service called Project Helios',
-      url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDSzptqPerihEzmaFGncnl9eN1k0u0kFnkVCitHQZ2K55tPDcRoBvwqCeAYTbFreBg7CgEE9yG6k2rpn1LueJ6o8Fmtp9UD58IUOtag_rWfnWQCciUTP4D_MqkLuYh1-xpfgOU5p1AUDxwuEyJqHnIZp0WkJuGJRU-AiTtSDejRypHEYj-kGIJklvzjfVceVioXTWcoRouqic9nWe6yHcxtZMqPXHHP2EnLXGtrxk672b7qLG1V0ac7HMYYQm8DUrN5mUoKYOmWrPrE',
-    },
-    {
-      title: 'Project Orion',
-      category: 'Branding',
-      alt: 'Branding mockups for a modern tech company named Project Orion',
-      url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBQmYISSztUNhS-i1ehuYvnKIYnN1TUGzOwmnpoIDXjL5YNY-HGp_G49WzDzfMuNg3xiy7PlE4G6Dl5e4xKT8IMwE5fs3i-DHeygiZi1twHL9bttWGXp1xYIviBkuQyhjHqZnu_44DbMp8xiyAh1w5dopLvEMF0G6zrpHFoAfIUB5x7dygH--m3TPV9tEgabpSD58-z67cPAhrxG8G_BV7mgpB68Ojf7rAQ14-EljKRKVXVjQBc6xb5ZfXi_GtEvr2zDx9ZBaLyvFwj',
-    },
-    {
-      title: 'Project Lyra',
-      category: 'UI/UX',
-      alt: 'Elegant user interface design for a finance app, Project Lyra',
-      url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDP10_ez_rfoOUCoS3C3sVBjtPso3nIsv5RsU_zUnklaHO8B632snpPMou_SGAYqhAFDIfnwH2c8civo3fQ7lkTl_dz5x26XPuwD4VcvXoxdSM81HF9g1ohPJFEkymx0de1dEbRkK5ltYom2vF_qgetDVEHCWl9c44S7h5yVJfAUtX7f2qEg1Mw62yibLFk6AGydnR5-1kGZRx6_ngMQ0cb8Wh1oJMT06PR4XDbkzGyvHiCJhuRh-pwnsCHjT7aeWYqx6KmlAi_Fyli',
-    },
-    {
-      title: 'Project Vega',
-      category: 'Web App',
-      alt: 'Web application UI on a laptop screen for Project Vega',
-      url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCinT7mNfT_BBQ5qJd9Opx2JYL-YkNucOcRPg77GWFRBrHaiS24R-sXzhFkHxCylph0n0xH8FYMjlWwyPbyEmhqXfvqm37_ufzDd6sDOOHn7GrzP3RKPsdja42yLVKOeXBd5in5aAJKd8u4rRi5aFq42hLFxoFCkagXpQABXZqlH6ggIgnM9HfGGWav2GRBfS8R3i2Kq8AE4E2UqORsoX2Mvy1O8mk1kUsnpC7HiI-wz_te8iJsPiygJKrPbFuZ5rZPx1L69yX9amo4',
-    },
-    {
-      title: 'Project Cygnus',
-      category: 'Mobile',
-      alt: 'A vibrant mobile game interface for Project Cygnus',
-      url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDrOtu2XbHeGH3BF9j8a2r1w8EW6YY-m9wYXqonMIiqqVp9aqnviZFl4WrCNxP9TnSCiIoPAoT-Lsj4X_-AbxXzzkSQWJi0jYnW9qpqwBhrVvPM9fr5xSW_56pfMycKG8O7ykIOcOq3jdmCAgX87QKfVi2qXjmd6EC85worCo93ljTfg9mRlMlzlRS_vpPeLWDQvT6l4KSBj-uPyvjj9UrMf2dbzTZMu2tS8g3Js62oy806exLCQAf7s_5If-zgpH7NdK570WXFFPks',
+      title: 'EasyGo Overseas',
+      category: 'Website Development',
+      alt: 'EasyGo Overseas - Education consultancy website for study abroad services',
+      url: '/Easy-go-logo.jpg',
+      link: 'https://www.easygo-overseas.in/',
+      description: 'Professional education consultancy website helping students pursue study abroad opportunities across multiple countries.',
+      challenge: 'Develop a comprehensive, user-friendly website to help students navigate study abroad opportunities. The website needed to showcase services for multiple countries (USA, UK, Canada, Australia, New Zealand, Singapore, Europe, Cyprus) and provide clear information about counseling, university applications, visa assistance, loan support, and accommodation guidance.',
+      solution: 'Created a modern, responsive website with intuitive navigation, comprehensive service pages, and clear call-to-action elements. Implemented mobile-first design ensuring seamless experience across all devices. The website features detailed information about study destinations, services offered, and easy contact methods.',
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'SEO Optimization', 'Modern Web Standards'],
+      features: [
+        'Free Counseling Services',
+        'Visa Guidance & Support',
+        'Accommodation Support',
+        'Multi-Country Information',
+        'Mobile-Responsive Design',
+        'Fast Loading Performance',
+        'SEO Optimized',
+        'Contact Forms & Inquiry System'
+      ],
+      results: [
+        'Professional online presence established',
+        'Enhanced student engagement and inquiries',
+        'Streamlined service information delivery',
+        'Improved user experience across all devices',
+        'Better visibility in search engines'
+      ],
+      client: 'Easy Go Overseas Advisor',
+      industry: 'Abroad Consultancy',
+      year: '2024'
     },
   ]
 
@@ -144,50 +139,191 @@ const Portfolio = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 p-4">
+          <div className="grid grid-cols-1 gap-6 p-4 max-w-xs mx-auto">
             {filteredProjects.map((project, index) => (
-              <div
+              <a
                 key={index}
-                className="bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-4 aspect-[3/4] cursor-pointer transform hover:scale-105 transition-transform duration-300"
-                style={{
-                  backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("${project.url}")`,
-                }}
-                role="img"
-                aria-label={project.alt}
+                href={project.link || '#'}
+                target={project.link ? '_blank' : undefined}
+                rel={project.link ? 'noopener noreferrer' : undefined}
+                className="flex flex-col gap-3 rounded-xl overflow-hidden bg-white dark:bg-[#1C2333] border border-gray-200 dark:border-[#282e39] cursor-pointer transform hover:scale-105 transition-transform duration-300 hover:shadow-xl"
               >
-                <p className="text-white text-lg font-bold leading-tight w-full line-clamp-2">
-                  {project.title}
-                </p>
-              </div>
+                <div
+                  className={`w-full bg-center bg-no-repeat ${
+                    project.title === 'EasyGo Overseas' ? 'bg-contain bg-gray-50 dark:bg-gray-800 p-4 aspect-[3/1]' : 'bg-cover aspect-[3/4]'
+                  }`}
+                  style={{
+                    backgroundImage: project.title === 'EasyGo Overseas' 
+                      ? `url("${project.url}")`
+                      : `linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("${project.url}")`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: project.title === 'EasyGo Overseas' ? 'contain' : 'cover',
+                  }}
+                  role="img"
+                  aria-label={project.alt}
+                />
+                <div className="px-3 pb-3">
+                  <p className="text-base font-bold leading-tight text-gray-900 dark:text-white line-clamp-2">
+                    {project.title}
+                  </p>
+                </div>
+              </a>
             ))}
           </div>
         </div>
 
-        <div className="p-4 @container">
-          <div className="flex flex-col items-stretch justify-start rounded-xl bg-slate-100 dark:bg-[#282e39]/50 @xl:flex-row-reverse @xl:items-center">
-            <div
-              className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl @xl:rounded-l-none @xl:rounded-r-xl"
-              style={{
-                backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuAni234zV2kycBUJg0r9GGZX2iSatBO8fhLPtvxMOzQDGqnC1YRcjOe2xEv-8K3orjQLFbIJ1gcNNcOU6L6J--MmiU8M8XlJFPa4No8za_sAqaU-nIjWJbx4aqMZZFZ6jUEl9nt8Ri03A70wAqKTpi6AOsVDU59XkR1W2ZlqZSXM932-NlAUlxncwqu3B3tzquNF--bYWjalBI3uvNkYz9YSx_3zfaVDEPMGNTfC--3vyjuzN9uEU2QeYUkbo-gEYLNYkaf3n_WgOjK")`,
-              }}
-              role="img"
-              aria-label="Portrait of Jane Doe, CEO of Starlight Inc."
-            />
-            <div className="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-2 p-6 @xl:px-8">
-              <p className="text-primary dark:text-primary text-xs font-bold leading-normal uppercase tracking-widest">
-                Client Testimonial
-              </p>
-              <p className="text-slate-800 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] @[480px]:text-xl">
-                "ZEENIITH didn't just build a product; they crafted an experience. Their attention to detail is exceptional and the results speak for themselves."
-              </p>
-              <div className="flex items-end gap-3 justify-between pt-2">
-                <p className="text-slate-600 dark:text-slate-400 text-sm font-normal leading-normal">
-                  Vikram Singh, CEO at Starlight Inc.
-                </p>
+        {/* Detailed Project Showcase */}
+        {filteredProjects.map((project, index) => (
+          <div key={index} className="flex flex-col gap-8 md:gap-12 px-4 md:px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto w-full">
+              {/* Project Header */}
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center mb-8">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-primary text-sm font-bold px-3 py-1 bg-primary/10 rounded-full">
+                      {project.category}
+                    </span>
+                    {project.year && (
+                      <span className="text-gray-500 dark:text-gray-400 text-sm">{project.year}</span>
+                    )}
+                  </div>
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-3">
+                    {project.title}
+                  </h2>
+                  {project.description && (
+                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {project.description}
+                    </p>
+                  )}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-primary font-semibold mt-4 hover:underline"
+                    >
+                      Visit Live Website
+                      <span className="material-symbols-outlined text-lg">open_in_new</span>
+                    </a>
+                  )}
+                </div>
+                <div className="w-full md:w-80 flex-shrink-0">
+                  <div
+                    className={`w-full rounded-xl bg-center bg-no-repeat ${
+                      project.title === 'EasyGo Overseas' ? 'bg-contain bg-gray-50 dark:bg-gray-800 p-6 aspect-[3/1]' : 'bg-cover aspect-video'
+                    }`}
+                    style={{
+                      backgroundImage: `url("${project.url}")`,
+                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: project.title === 'EasyGo Overseas' ? 'contain' : 'cover',
+                    }}
+                    role="img"
+                    aria-label={project.alt}
+                  />
+                </div>
               </div>
+
+              {/* Project Details Grid */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                {/* Challenge & Solution */}
+                <div className="lg:col-span-2 space-y-8">
+                  {project.challenge && (
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                        <span className="material-symbols-outlined text-primary">help_outline</span>
+                        Challenge
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        {project.challenge}
+                      </p>
+                    </div>
+                  )}
+                  {project.solution && (
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                        <span className="material-symbols-outlined text-primary">lightbulb</span>
+                        Solution
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        {project.solution}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Project Info Sidebar */}
+                <div className="space-y-6">
+                  {project.client && (
+                    <div>
+                      <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">Client</p>
+                      <p className="text-base font-medium text-gray-900 dark:text-white">{project.client}</p>
+                    </div>
+                  )}
+                  {project.industry && (
+                    <div>
+                      <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">Industry</p>
+                      <p className="text-base font-medium text-gray-900 dark:text-white">{project.industry}</p>
+                    </div>
+                  )}
+                  {project.technologies && (
+                    <div>
+                      <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-3">Technologies Used</p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="text-xs font-medium px-3 py-1 bg-gray-100 dark:bg-[#282e39] text-gray-700 dark:text-gray-300 rounded-md"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Features Section */}
+              {project.features && project.features.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                    <span className="material-symbols-outlined text-primary">star</span>
+                    Key Features
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {project.features.map((feature, i) => (
+                      <div
+                        key={i}
+                        className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-[#282e39] rounded-lg"
+                      >
+                        <span className="material-symbols-outlined text-primary text-xl flex-shrink-0">check_circle</span>
+                        <p className="text-gray-700 dark:text-gray-300">{feature}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Results Section */}
+              {project.results && project.results.length > 0 && (
+                <div className="bg-primary/5 dark:bg-primary/10 rounded-xl p-6 md:p-8">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                    <span className="material-symbols-outlined text-primary">trending_up</span>
+                    Results & Impact
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {project.results.map((result, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <span className="material-symbols-outlined text-primary text-xl flex-shrink-0">verified</span>
+                        <p className="text-gray-700 dark:text-gray-300">{result}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-        </div>
+        ))}
 
         {/* Project Stats */}
         <div className="py-12 md:py-20 bg-gray-100/50 dark:bg-white/5 rounded-xl mx-4">
@@ -207,119 +343,6 @@ const Portfolio = () => {
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-primary mb-2">{stat.number}</h3>
                 <p className="text-xs text-gray-600 dark:text-gray-400">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Featured Case Studies */}
-        <div className="py-12 md:py-20">
-          <h2 className="text-center text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-8 pt-5">
-            Featured Case Studies
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
-            {[
-              {
-                title: 'E-Commerce Platform Redesign',
-                category: 'Website Development',
-                challenge: 'Build a comprehensive e-commerce platform to handle increased traffic and improve user experience for a fashion retail company.',
-                solution: 'Developed a scalable React-based platform with real-time inventory management, optimized checkout process, and mobile-first responsive design.',
-                results: ['250% increase in conversions', '40% reduction in cart abandonment', '3x transaction capacity'],
-                image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC9IfUe8kIKhQGvfjaXXc2o3ET39FoHcpI5tq_aQg8UKTpy3AzUI9YAe1jWoXK3r17xt1QnTNyzwSPmbcCmOuz4dTqyoLNQ8eO921bbSBpRgZ5N2b3B5a19ZlXOI1wqrbSo4cV__Bg0oRt4TNUOuYt_8eyV0CW4UEuNulRsWDWanWaUNFUQ3e8igh9o1pmO_kFj7n-XpV-UjJ7q4jkuL0e0VAOjXQx1mEhzRqx58JqL4m-0W3qTLLxcxCRXfJubhIFTxQHXifonJtrA',
-              },
-              {
-                title: 'FinTech Mobile Banking App',
-                category: 'Mobile App Development',
-                challenge: 'Create a secure mobile banking application with biometric authentication and real-time transaction capabilities.',
-                solution: 'Built a native iOS and Android app with React Native, implementing secure authentication, real-time transaction processing, and investment tracking features.',
-                results: ['500K+ downloads', '4.8 star rating', '150% increase in user engagement'],
-                image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDSzptqPerihEzmaFGncnl9eN1k0u0kFnkVCitHQZ2K55tPDcRoBvwqCeAYTbFreBg7CgEE9yG6k2rpn1LueJ6o8Fmtp9UD58IUOtag_rWfnWQCciUTP4D_MqkLuYh1-xpfgOU5p1AUDxwuEyJqHnIZp0WkJuGJRU-AiTtSDejRypHEYj-kGIJklvzjfVceVioXTWcoRouqic9nWe6yHcxtZMqPXHHP2EnLXGtrxk672b7qLG1V0ac7HMYYQm8DUrN5mUoKYOmWrPrE',
-              },
-            ].map((caseStudy, index) => (
-              <div
-                key={index}
-                className="flex flex-col gap-4 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] overflow-hidden h-full"
-              >
-                <div
-                  className="w-full h-48 bg-cover bg-center flex-shrink-0"
-                  style={{ backgroundImage: `url("${caseStudy.image}")` }}
-                  role="img"
-                  aria-label={caseStudy.title}
-                />
-                <div className="p-6 flex flex-col gap-4 flex-grow min-h-0">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">{caseStudy.title}</h3>
-                    <span className="text-primary text-xs font-bold px-3 py-1 bg-primary/10 rounded-full">
-                      {caseStudy.category}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Challenge:</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 text-justify">{caseStudy.challenge}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Solution:</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 text-justify">{caseStudy.solution}</p>
-                  </div>
-                  <div className="pt-2 border-t border-gray-200 dark:border-[#282e39]">
-                    <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">Results:</p>
-                    <ul className="space-y-1">
-                      {caseStudy.results.map((result, i) => (
-                        <li key={i} className="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-2">
-                          <span className="material-symbols-outlined text-primary text-lg">check_circle</span>
-                          {result}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Client Testimonials Grid */}
-        <div className="py-12 md:py-20">
-          <h2 className="text-center text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-8 pt-5">
-            What Clients Say
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
-            {[
-              {
-                quote: 'Zeeniith exceeded our expectations. The team was professional, responsive, and delivered exactly what we needed.',
-                author: 'Emily Rodriguez',
-                role: 'Product Manager',
-                company: 'TechCorp',
-              },
-              {
-                quote: 'Working with Zeeniith was seamless. They understood our vision and brought it to life beautifully.',
-                author: 'James Wilson',
-                role: 'Founder',
-                company: 'StartupHub',
-              },
-              {
-                quote: 'The quality of work and attention to detail is outstanding. Highly recommend Zeeniith for any project.',
-                author: 'Lisa Anderson',
-                role: 'CTO',
-                company: 'InnovateLabs',
-              },
-            ].map((testimonial, index) => (
-              <div
-                key={index}
-                className="flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] h-full"
-              >
-                <div className="flex items-center gap-1 text-primary flex-shrink-0">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <span key={star} className="material-symbols-outlined text-xl">star</span>
-                  ))}
-                </div>
-                <p className="text-xs text-gray-700 dark:text-gray-300 italic flex-grow">"{testimonial.quote}"</p>
-                <div className="pt-2 border-t border-gray-200 dark:border-[#282e39] flex-shrink-0">
-                  <p className="font-bold text-gray-900 dark:text-white truncate">{testimonial.author}</p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 truncate">
-                    {testimonial.role} at {testimonial.company}
-                  </p>
-                </div>
               </div>
             ))}
           </div>

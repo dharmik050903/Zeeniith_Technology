@@ -8,7 +8,7 @@ interface SEOProps {
 }
 
 const SEO = ({ title, description, path = '', image = '' }: SEOProps) => {
-  const siteUrl = 'https://macrocosmtech.com'
+  const siteUrl = 'https://zeeniith.com'
   const fullUrl = `${siteUrl}${path}`
   const ogImage = image || `${siteUrl}/og-image.jpg`
 
@@ -63,15 +63,15 @@ const SEO = ({ title, description, path = '', image = '' }: SEOProps) => {
     logo: `${siteUrl}/logo.png`,
     description: 'We build digital universes. A software agency dedicated to creating innovative solutions.',
     sameAs: [
-      'https://twitter.com/macrocosmtech',
-      'https://linkedin.com/company/macrocosmtech',
-      'https://github.com/macrocosmtech',
+      'https://twitter.com/zeeniith',
+      'https://linkedin.com/company/zeeniith',
+      'https://github.com/zeeniith',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+1-234-567-890',
+      telephone: '+916357120971',
       contactType: 'Customer Service',
-      email: 'hello@macrocosmtech.com',
+      email: 'zeeniithinfo@gmail.com',
     },
   }
 

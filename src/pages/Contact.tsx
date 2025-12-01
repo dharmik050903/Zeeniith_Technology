@@ -143,9 +143,9 @@ const Contact = () => {
                       </p>
                       <a
                         className="text-xs text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
-                        href="mailto:[ADD YOUR EMAIL]"
+                        href="mailto:zeeniithinfo@gmail.com"
                       >
-                        [ADD YOUR EMAIL]
+                        zeeniithinfo@gmail.com
                       </a>
                     </div>
                   </div>
@@ -159,9 +159,9 @@ const Contact = () => {
                       </p>
                       <a
                         className="text-xs text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
-                        href="tel:[ADD YOUR PHONE NUMBER]"
+                        href="tel:+916357120971"
                       >
-                        [ADD YOUR PHONE NUMBER]
+                        +91 6357120971
                       </a>
                     </div>
                   </div>

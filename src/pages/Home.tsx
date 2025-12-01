@@ -43,9 +43,13 @@ const Home = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const heroRef = useRef<HTMLDivElement>(null)
   const statsRef = useRef<HTMLDivElement>(null)
+  const processRef = useRef<HTMLDivElement>(null)
+  const stepRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)]
   const [isVisible, setIsVisible] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [shouldAnimateStats, setShouldAnimateStats] = useState(false)
+  const [hoveredStep, setHoveredStep] = useState<number | null>(null)
+  const [lineCoords, setLineCoords] = useState<Array<{ x1: number; y1: number; x2: number; y2: number }>>([])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -123,6 +127,78 @@ const Home = () => {
       }
     }
   }, [])
+
+  // Calculate line coordinates when hovering over step 2, 3, or 4
+  useEffect(() => {
+    if (hoveredStep === null || (hoveredStep !== 1 && hoveredStep !== 2 && hoveredStep !== 3)) {
+      setLineCoords([])
+      return
+    }
+
+    const updateLineCoords = () => {
+      if (!processRef.current) {
+        return
+      }
+
+      const processRect = processRef.current.getBoundingClientRect()
+      const lines: Array<{ x1: number; y1: number; x2: number; y2: number }> = []
+
+      // Create lines connecting all steps sequentially up to the hovered step
+      // hoveredStep 1 = step 2 (index 1), hoveredStep 2 = step 3 (index 2), hoveredStep 3 = step 4 (index 3)
+      // For step 2: show line 1->2
+      // For step 3: show lines 1->2 and 2->3
+      // For step 4: show lines 1->2, 2->3, and 3->4
+
+      for (let i = 0; i < hoveredStep; i++) {
+        const fromIndex = i
+        const toIndex = i + 1
+
+        if (!stepRefs[fromIndex].current || !stepRefs[toIndex].current) {
+          continue
+        }
+
+        // Find the circle elements
+        const fromCircle = stepRefs[fromIndex].current!.querySelector('.rounded-full') as HTMLElement
+        const toCircle = stepRefs[toIndex].current!.querySelector('.rounded-full') as HTMLElement
+
+        if (!fromCircle || !toCircle) {
+          continue
+        }
+
+        const fromCircleRect = fromCircle.getBoundingClientRect()
+        const toCircleRect = toCircle.getBoundingClientRect()
+
+        // Determine if layout is horizontal (desktop) or vertical (mobile)
+        const isHorizontal = fromCircleRect.left < toCircleRect.left
+        
+        let x1, y1, x2, y2
+        
+        if (isHorizontal) {
+          // Horizontal layout: from right edge of from circle to left edge of to circle
+          x1 = fromCircleRect.left - processRect.left + fromCircleRect.width
+          y1 = fromCircleRect.top - processRect.top + fromCircleRect.height / 2
+          x2 = toCircleRect.left - processRect.left
+          y2 = toCircleRect.top - processRect.top + toCircleRect.height / 2
+        } else {
+          // Vertical layout: from bottom edge of from circle to top edge of to circle
+          x1 = fromCircleRect.left - processRect.left + fromCircleRect.width / 2
+          y1 = fromCircleRect.top - processRect.top + fromCircleRect.height
+          x2 = toCircleRect.left - processRect.left + toCircleRect.width / 2
+          y2 = toCircleRect.top - processRect.top
+        }
+
+        lines.push({ x1, y1, x2, y2 })
+      }
+
+      setLineCoords(lines)
+    }
+
+    updateLineCoords()
+
+    // Update on window resize
+    window.addEventListener('resize', updateLineCoords)
+    return () => window.removeEventListener('resize', updateLineCoords)
+  }, [hoveredStep])
 
   return (
     <>
@@ -300,45 +376,45 @@ const Home = () => {
         <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-[-0.015em] px-2 xs:px-4 sm:px-6 pb-4 xs:pb-6 sm:pb-8 pt-2 xs:pt-4 sm:pt-5 text-center">
           Our Projects - Explore the Impact We've Created
         </h2>
-        <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-3 xs:gap-4 sm:gap-5 md:gap-6 lg:gap-8 px-2 xs:px-3 sm:px-4 md:px-6">
+        <div className="grid grid-cols-1 gap-3 xs:gap-4 sm:gap-5 md:gap-6 lg:gap-8 px-2 xs:px-3 sm:px-4 md:px-6 max-w-xl mx-auto">
           {[
             {
-              title: 'E-Commerce Platform Redesign',
+              title: 'EasyGo Overseas',
               category: 'Website Development',
-              description: 'Complete redesign and rebuilding of e-commerce platform to handle increased traffic and improve user experience.',
-              result: '250% increase in conversions, 40% reduction in cart abandonment, 3x transaction capacity',
-              technologies: 'React, Node.js, MongoDB, AWS, Stripe',
-              alt: 'E-Commerce Platform Project',
-              url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDU4yMBR_ekopvLmx8wyvjJ56bpT3XduiciMokV4nY8PVan2s9IZhpnFj8jxo_oO3r3daLvHedq5xgLpUi1wVvUThf0eMt5OkaPsEhKHEa7TChQ5B5H2arNh5VCEMEmxFQCwYrwWe8Z7vgz50mhhw0Mmbgm4xF-lLIrVqWDb6FFhqPv4fSPSFhe3NDqc3P7ZZsYLici736CfQodS2QEeIMq_cmEUGBlrWhev2MBv3_Nwtu_oFOtoXFegAIqF59MPBEL7zhQglrkoUHV',
+              description: 'Professional education consultancy website helping students pursue study abroad opportunities. Features comprehensive services including free counseling, university applications, visa assistance, loan support, and accommodation guidance for destinations like USA, UK, Canada, Australia, and more.',
+              result: 'Enhanced online presence, improved student engagement, streamlined service delivery',
+              technologies: 'Modern Web Technologies, Responsive Design, SEO Optimized',
+              alt: 'EasyGo Overseas Education Consultancy Website',
+              url: '/Easy-go-logo.jpg',
+              link: 'https://www.easygo-overseas.in/',
             },
-            {
-              title: 'Healthcare Management System',
-              category: 'Custom Software Development',
-              description: 'Comprehensive healthcare management solution for hospitals with patient records, appointment scheduling, and billing.',
-              result: '60% reduction in administrative time, 99.9% uptime, 5000+ daily active users',
-              technologies: 'React, Node.js, PostgreSQL, AWS, Docker',
-              alt: 'Healthcare Management System',
-              url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAn6F7aTYSMeLpsPRQty9H__lXFkQL8kCpiKDmeWsPq7_fPLiszsGEHxuYgYRWvvLL8AK9Mms9jefP5ivdffVy_e2MNh7E1EZgH2s--VHf1Sodr8y1gfUR7fNbCsmONxI-6TYSyLd__FSMWe220btDoScDNZHY80gCWI3aibsw0QuALS-LylOPt22ucZffzFUTyvf8LTjKH5Uq74ko4VrHTidK_6QM48Z1Xpjp9l-oMzVbl6KGpbIolJJ21Po3geUVX7ucP-6jC7HN_',
-            },
-            {
-              title: 'FinTech Mobile App',
-              category: 'Mobile App Development',
-              description: 'Secure mobile banking application with biometric authentication, real-time transactions, and investment tracking.',
-              result: '500K+ downloads, 4.8 star rating, 150% increase in user engagement',
-              technologies: 'React Native, Node.js, MongoDB, AWS, Stripe API',
-              alt: 'FinTech Mobile App',
-              url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDpBbNKvId8tdFWgzHMgXO62-rsgWVKYLRyVHjTbosy74QtY61_fD5I8r62U2QMoECYMi8wqa__iEzk1Sx6CAkVUQ-JHJhSr2V7pTn3avShgTSmi3mw5tg_vaR_DcqkvhWTakjf60yCkkHcypqwyaYynclw4oKd3nNivIjrKXbHn9epxf8X8DSrYKLiReJuSyBb3rcQo451pFTziPnVSJCEgK2eDPvVeN4w7deFfcMPFh6tgofoHsHkonf2e6vLK54nFy6R3dNE5Qkh',
-            },
-          ].map((project, index) => (
-            <Link key={index} to="/portfolio" className="group w-full">
-              <div className="flex flex-col h-full bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] overflow-hidden hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl hover:-translate-y-1">
-                <div
-                  className="w-full bg-center bg-no-repeat aspect-square bg-cover overflow-hidden transform group-hover:scale-105 transition-transform duration-300"
-                  style={{ backgroundImage: `url("${project.url}")` }}
-                  role="img"
-                  aria-label={project.alt}
-                />
-                <div className="p-4 sm:p-5 md:p-6 flex flex-col flex-grow">
+          ].map((project, index) => {
+            const ProjectWrapper = project.link ? ({ children }: { children: React.ReactNode }) => (
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="group w-full">
+                {children}
+              </a>
+            ) : ({ children }: { children: React.ReactNode }) => (
+              <Link to="/portfolio" className="group w-full">
+                {children}
+              </Link>
+            )
+            
+            return (
+              <ProjectWrapper key={index}>
+                <div className="flex flex-col h-full bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] overflow-hidden hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl hover:-translate-y-1">
+                  <div
+                    className={`w-full bg-center bg-no-repeat overflow-hidden transform group-hover:scale-105 transition-transform duration-300 ${
+                      project.title === 'EasyGo Overseas' ? 'bg-contain bg-gray-50 dark:bg-gray-800 p-4 aspect-[3/1]' : 'bg-cover aspect-square'
+                    }`}
+                    style={{
+                      backgroundImage: `url("${project.url}")`,
+                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: project.title === 'EasyGo Overseas' ? 'contain' : 'cover',
+                    }}
+                    role="img"
+                    aria-label={project.alt}
+                  />
+                <div className="p-3 sm:p-4 md:p-5 flex flex-col flex-grow">
                   <div className="mb-2">
                     <span className="inline-block text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 px-2 py-1 rounded-md mb-2">
                       {project.category}
@@ -360,10 +436,11 @@ const Home = () => {
                       <p className="text-xs text-gray-600 dark:text-gray-400">{project.technologies}</p>
                     </div>
                   </div>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </ProjectWrapper>
+            )
+          })}
         </div>
         <div className="text-center pt-4 xs:pt-6 sm:pt-8 md:pt-10">
           <Link to="/portfolio">
@@ -499,15 +576,63 @@ const Home = () => {
             A proven methodology that ensures success from concept to launch.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 px-4">
+        <div ref={processRef} className="relative grid grid-cols-1 md:grid-cols-4 gap-6 px-4">
+          {/* SVG overlay for drawing lines */}
+          {lineCoords.length > 0 && (
+            <svg
+              className="absolute top-0 left-0 w-full h-full pointer-events-none z-10"
+              style={{ overflow: 'visible' }}
+            >
+              {lineCoords.map((coords, idx) => {
+                // Each line waits for the previous one to complete (0.6s) plus a pause (0.2s)
+                const animationDuration = 0.6
+                const pauseBetweenLines = 0.2
+                const delay = idx * (animationDuration + pauseBetweenLines)
+                
+                return (
+                  <line
+                    key={idx}
+                    x1={coords.x1}
+                    y1={coords.y1}
+                    x2={coords.x2}
+                    y2={coords.y2}
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="text-primary"
+                    style={{
+                      strokeDasharray: '1000',
+                      strokeDashoffset: '1000',
+                      animation: `drawLine ${animationDuration}s cubic-bezier(0.4, 0, 0.2, 1) ${delay}s forwards`,
+                      transition: 'opacity 0.3s ease-out',
+                    }}
+                  />
+                )
+              })}
+            </svg>
+          )}
           {[
             { number: '01', title: 'Discover', desc: 'We understand your goals and requirements' },
             { number: '02', title: 'Design', desc: 'We create beautiful, functional designs' },
             { number: '03', title: 'Develop', desc: 'We build with clean, efficient code' },
             { number: '04', title: 'Deploy', desc: 'We launch and support your solution' },
           ].map((step, index) => (
-            <div key={index} className="flex flex-col items-center text-center h-full">
-              <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-4 flex-shrink-0">
+            <div
+              key={index}
+              ref={stepRefs[index]}
+              className="flex flex-col items-center text-center h-full relative z-20 cursor-pointer transition-all duration-300"
+              onMouseEnter={() => {
+                // Show lines for step 2 (index 1), step 3 (index 2), and step 4 (index 3)
+                if (index === 1 || index === 2 || index === 3) {
+                  setHoveredStep(index) // index 1 = step 2, index 2 = step 3, index 3 = step 4
+                }
+              }}
+              onMouseLeave={() => {
+                if (index === 1 || index === 2 || index === 3) {
+                  setHoveredStep(null)
+                }
+              }}
+            >
+              <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-4 flex-shrink-0 transition-transform hover:scale-110">
                 <span className="text-primary text-2xl font-bold">{step.number}</span>
               </div>
               <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{step.title}</h3>
@@ -517,71 +642,32 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Testimonials Section */}
+      {/* Blog Preview Section */}
       <div className="py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24">
         <div className="text-center mb-6 xs:mb-8 sm:mb-10 md:mb-12 px-2 xs:px-4 sm:px-6">
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-[-0.015em] mb-2 xs:mb-3 sm:mb-4">
-            Loved by Businesses Worldwide
+            Success Stories
           </h2>
         </div>
-        <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 px-2 xs:px-3 sm:px-4 md:px-6">
+        <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 px-2 xs:px-3 sm:px-4 md:px-6">
           {[
             {
-              quote: "Working with ZEENIITH transformed our entire business. They didn't just develop our software - they understood our vision and delivered a solution that exceeded our expectations. The team's professionalism, communication, and dedication to quality are exceptional. Our operational efficiency improved by 60% and we've already recommended ZEENIITH to multiple business partners.",
-              author: 'Rajesh Kumar',
-              role: 'CEO',
-              company: 'TechVenture Solutions',
-              rating: 5,
-              image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDqpQqF66IwQIaIrIO73eMBSFTweSiRXQ1Ez3AkCheIy7lrQs4lZI8vCvrbdyRKCKdIBmmbtilT9jBx1SETh9c4lxNZO90Nbr1x7UUBznn7vKDlQWzVWOzQRg4Gj4TZkHoJogGNdpFUIoy8o0vk1aFrHrmc7C6cYZ38elWPXlNb0bqjJkPvvI6WykpJSGy1vQrCdetStv904u9AjsA5nbykMlShhJh54yhIvOVzGFr7wTv9rm64ZdlcgcTCrbFHlR1V87OL-BpiJLlG',
+              review: "Working with Zeeniith Technology on the Easy Go Overseas Advisor website was a genuinely smooth and positive experience; the team quickly understood my vision, turned it into a clean and professional design tailored for work permit and PR services, communicated clearly at every step, handled feedback patiently, and delivered a fast, mobile-friendly, and conversion-focused website that I’m truly proud to use for my business.",
+              author: 'Alpesh Suthar',
+              company: 'Easy Go Overseas Advisor',
             },
-            {
-              quote: "We needed a robust e-commerce platform to handle our growing business. ZEENIITH delivered a scalable, fast-loading solution that helped us increase conversions by 150% in the first quarter. Their support team is incredibly responsive and helpful. Best investment we've made for our business.",
-              author: 'Priya Sharma',
-              role: 'CTO',
-              company: 'Digital Innovations Pvt Ltd',
-              rating: 5,
-              image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBUJCPHqoaSKTPucwg5Hu9K91-lFhT--r-S6F6upjVgTfIaMeYLOH_pm_VDhJD-mJ1bK9B_mOuuX9RIdsDZcsuSD1mFSKbvd0chPYXm5yqq51gG_Er0i_rCAyRrLUvOSz74iapwLe-OlxBv9jFEVnRkLA56d5mX-PQO1fM_TdAfTVVTElzPjnwbBGinmUywQKH4c3JNNd0UHjangcSvoHvcNTLtsgAMY0g4Rq1DMIfi7qnHzuABg1e1S_wfxV74-KzXOtSLrDq46STU',
-            },
-            {
-              quote: "The digital marketing expertise at ZEENIITH is outstanding. They took our online presence from non-existent to first-page Google rankings in just 4 months. We went from 0 organic leads to 50+ qualified leads monthly. Highly recommended!",
-              author: 'Amit Patel',
-              role: 'Marketing Director',
-              company: 'GrowthHub India',
-              rating: 5,
-              image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDqpQqF66IwQIaIrIO73eMBSFTweSiRXQ1Ez3AkCheIy7lrQs4lZI8vCvrbdyRKCKdIBmmbtilT9jBx1SETh9c4lxNZO90Nbr1x7UUBznn7vKDlQWzVWOzQRg4Gj4TZkHoJogGNdpFUIoy8o0vk1aFrHrmc7C6cYZ38elWPXlNb0bqjJkPvvI6WykpJSGy1vQrCdetStv904u9AjsA5nbykMlShhJh54yhIvOVzGFr7wTv9rm64ZdlcgcTCrbFHlR1V87OL-BpiJLlG',
-            },
-            {
-              quote: "ZEENIITH's team built our mobile app from scratch. Not only is the app beautiful and user-friendly, but their continued support has been invaluable. We've already hit 10,000 downloads and they're helping us scale. Great partner!",
-              author: 'Sneha Mehta',
-              role: 'Founder',
-              company: 'StartupNest',
-              rating: 5,
-              image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBUJCPHqoaSKTPucwg5Hu9K91-lFhT--r-S6F6upjVgTfIaMeYLOH_pm_VDhJD-mJ1bK9B_mOuuX9RIdsDZcsuSD1mFSKbvd0chPYXm5yqq51gG_Er0i_rCAyRrLUvOSz74iapwLe-OlxBv9jFEVnRkLA56d5mX-PQO1fM_TdAfTVVTElzPjnwbBGinmUywQKH4c3JNNd0UHjangcSvoHvcNTLtsgAMY0g4Rq1DMIfi7qnHzuABg1e1S_wfxV74-KzXOtSLrDq46STU',
-            },
-          ].map((testimonial, index) => (
+          ].map((client, index) => (
             <div
               key={index}
-              className="flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] h-full"
+              className="flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl h-full"
             >
-              <div className="flex items-center gap-4 flex-shrink-0">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.author}
-                  className="w-16 h-16 rounded-full object-cover flex-shrink-0"
-                  loading="lazy"
-                />
-                <div className="min-w-0">
-                  <h4 className="font-bold text-gray-900 dark:text-white truncate">{testimonial.author}</h4>
-                  <p className="text-sm text-primary truncate">{testimonial.role}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-500 truncate">{testimonial.company}</p>
-                </div>
+              <div className="text-center flex-shrink-0">
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{client.author}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{client.company}</p>
               </div>
-              <div className="flex items-center gap-1 mb-2">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <span key={i} className="text-yellow-400 text-lg">★</span>
-                ))}
+              <div className="flex-1 flex items-start">
+                <p className="text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed text-center">"{client.review}"</p>
               </div>
-                      <p className="text-xs text-gray-700 dark:text-gray-300 italic flex-grow">"{testimonial.quote}"</p>
             </div>
           ))}
         </div>
@@ -591,7 +677,7 @@ const Home = () => {
       <div className="py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24">
         <div className="text-center mb-6 xs:mb-8 sm:mb-10 md:mb-12 px-2 xs:px-4 sm:px-6">
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-[-0.015em] mb-2 xs:mb-3 sm:mb-4">
-            Insights - Actionable Perspectives from Experts
+            Success Stories
           </h2>
         </div>
         <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 px-2 xs:px-3 sm:px-4 md:px-6">

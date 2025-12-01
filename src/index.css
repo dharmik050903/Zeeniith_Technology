@@ -299,6 +299,21 @@ body {
   animation: contentFadeIn 1s ease-out forwards;
 }
 
+/* Line drawing animation for process steps */
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
 /* Text justification utility */
 .text-justify {
   text-align: justify;

@@ -22,13 +22,13 @@ git commit -m "Initial commit: Zeeniith website"
 ### Step 2: Create GitHub Repository
 
 1. Go to [GitHub](https://github.com) and create a new repository
-2. Name it `macrocosmtech` (or any name you prefer)
+2. Name it `zeeniith` (or any name you prefer)
 3. **Don't** initialize it with README, .gitignore, or license (we already have these)
 
 ### Step 3: Push to GitHub
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/macrocosmtech.git
+git remote add origin https://github.com/YOUR_USERNAME/zeeniith.git
 git branch -M main
 git push -u origin main
 ```
@@ -41,7 +41,7 @@ Replace `YOUR_USERNAME` with your GitHub username.
 
 1. Go to [vercel.com](https://vercel.com) and sign in
 2. Click **"Add New Project"**
-3. Import your GitHub repository (`macrocosmtech`)
+3. Import your GitHub repository (`zeeniith`)
 4. Vercel will auto-detect the settings:
    - **Framework Preset**: Vite
    - **Build Command**: `npm run build`

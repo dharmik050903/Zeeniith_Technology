@@ -432,49 +432,102 @@ const Services = () => {
               Real results from real clients
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-4xl mx-auto">
             {[
               {
-                title: 'E-Commerce Platform',
-                client: 'RetailTech Inc.',
-                result: '300% increase in online sales',
-                description: 'We built a scalable e-commerce platform that handles millions of transactions daily with zero downtime.',
-                image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDU4yMBR_ekopvLmx8wyvjJ56bpT3XduiciMokV4nY8PVan2s9IZhpnFj8jxo_oO3r3daLvHedq5xgLpUi1wVvUThf0eMt5OkaPsEhKHEa7TChQ5B5H2arNh5VCEMEmxFQCwYrwWe8Z7vgz50mhhw0Mmbgm4xF-lLIrVqWDb6FFhqPv4fSPSFhe3NDqc3P7ZZsYLici736CfQodS2QEeIMq_cmEUGBlrWhev2MBv3_Nwtu_oFOtoXFegAIqF59MPBEL7zhQglrkoUHV',
-              },
-              {
-                title: 'Mobile Banking App',
-                client: 'FinanceFirst',
-                result: '500K+ active users',
-                description: 'A secure mobile banking solution with biometric authentication and real-time transactions.',
-                image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAn6F7aTYSMeLpsPRQty9H__lXFkQL8kCpiKDmeWsPq7_fPLiszsGEHxuYgYRWvvLL8AK9Mms9jefP5ivdffVy_e2MNh7E1EZgH2s--VHf1Sodr8y1gfUR7fNbCsmONxI-6TYSyLd__FSMWe220btDoScDNZHY80gCWI3aibsw0QuALS-LylOPt22ucZffzFUTyvf8LTjKH5Uq74ko4VrHTidK_6QM48Z1Xpjp9l-oMzVbl6KGpbIolJJ21Po3geUVX7ucP-6jC7HN_',
+                title: 'EasyGo Overseas Website',
+                client: 'Easy Go Overseas Advisor',
+                result: '40% increase in inquiries | Professional online presence established',
+                description: 'A comprehensive education consultancy website helping students navigate study abroad opportunities across USA, UK, Canada, Australia, New Zealand, Singapore, Europe, and Cyprus. The website features free counseling services, university application assistance, visa guidance, loan support, and accommodation information.',
+                image: '/Easy-go-logo.jpg',
+                link: 'https://www.easygo-overseas.in/',
+                metrics: [
+                  '40% increase in student inquiries within 3 months',
+                  '200+ monthly website visitors',
+                  '50% improvement in mobile user engagement',
+                  'Professional online presence established',
+                  'SEO optimized for better search visibility'
+                ],
+                testimonial: "Working with Zeeniith Technology on the Easy Go Overseas Advisor website was a genuinely smooth and positive experience. The team quickly understood my vision and delivered a fast, mobile-friendly, and conversion-focused website that I'm truly proud to use for my business."
               },
             ].map((caseStudy, index) => (
               <div
                 key={index}
-                className="flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl group overflow-hidden h-full"
+                className="flex flex-col gap-6 p-6 md:p-8 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl group overflow-hidden h-full"
               >
-                <div className="w-full h-48 rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800 flex-shrink-0">
+                <div className="w-full h-64 rounded-lg overflow-hidden bg-gray-50 dark:bg-gray-800 flex-shrink-0 flex items-center justify-center p-6">
                   <img
                     src={caseStudy.image}
                     alt={caseStudy.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                 </div>
-                <div className="flex items-center justify-between flex-shrink-0">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors min-w-0 flex-1">{caseStudy.title}</h3>
-                  <span className="text-primary text-sm font-bold bg-primary/10 dark:bg-primary/20 px-3 py-1 rounded-full flex-shrink-0 ml-2">{caseStudy.client}</span>
-                </div>
-                <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed flex-grow">{caseStudy.description}</p>
-                <div className="flex items-center gap-3 pt-3 border-t border-gray-200 dark:border-[#282e39] flex-shrink-0">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0">
-                    <span className="material-symbols-outlined text-primary text-xl">trending_up</span>
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center justify-between flex-shrink-0">
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors min-w-0 flex-1">{caseStudy.title}</h3>
+                    <span className="text-primary text-sm font-bold bg-primary/10 dark:bg-primary/20 px-3 py-1 rounded-full flex-shrink-0 ml-2">{caseStudy.client}</span>
                   </div>
-                  <div className="min-w-0">
-                    <p className="text-xs text-gray-500 dark:text-gray-500">Result</p>
-                    <p className="text-sm font-bold text-primary truncate">{caseStudy.result}</p>
+                  <p className="text-base text-slate-600 dark:text-gray-400 leading-relaxed">{caseStudy.description}</p>
+                </div>
+                
+                {/* Key Metrics */}
+                {caseStudy.metrics && (
+                  <div className="pt-4 border-t border-gray-200 dark:border-[#282e39]">
+                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
+                      <span className="material-symbols-outlined text-primary text-lg">analytics</span>
+                      Key Results
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {caseStudy.metrics.map((metric, i) => (
+                        <div key={i} className="flex items-start gap-2">
+                          <span className="material-symbols-outlined text-primary text-lg flex-shrink-0">check_circle</span>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">{metric}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Result Highlight */}
+                <div className="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-[#282e39] bg-primary/5 dark:bg-primary/10 rounded-lg p-4 flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-primary/20 dark:bg-primary/30 flex items-center justify-center flex-shrink-0">
+                    <span className="material-symbols-outlined text-primary text-2xl">trending_up</span>
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Primary Result</p>
+                    <p className="text-base font-bold text-primary">{caseStudy.result}</p>
                   </div>
                 </div>
+
+                {/* Client Info */}
+                <div className="pt-4 border-t border-gray-200 dark:border-[#282e39]">
+                  <div className="flex flex-col gap-3">
+                    <div className="flex-1">
+                      <p className="text-base font-semibold text-gray-900 dark:text-white">Alpesh Suthar</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Easy Go Overseas Advisor</p>
+                    </div>
+                    {caseStudy.testimonial && (
+                      <div className="flex items-start gap-2">
+                        <span className="material-symbols-outlined text-primary text-xl flex-shrink-0">format_quote</span>
+                        <p className="text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed">"{caseStudy.testimonial}"</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Visit Website Link */}
+                {caseStudy.link && (
+                  <a
+                    href={caseStudy.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 mt-2 px-4 py-2 bg-primary text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity"
+                  >
+                    Visit Live Website
+                    <span className="material-symbols-outlined text-lg">open_in_new</span>
+                  </a>
+                )}
               </div>
             ))}
           </div>
