@@ -67,15 +67,15 @@ const Header = () => {
       >
         <div className="w-full px-3 xs:px-4 sm:px-5 md:px-6 lg:px-7 xl:px-9 flex items-center justify-between gap-2 xs:gap-2.5 sm:gap-3 md:gap-4 lg:gap-6">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-1.5 xs:gap-2 sm:gap-2 md:gap-2 lg:gap-2.5 xl:gap-3 group flex-shrink-0 max-w-[80px] xs:max-w-[100px] sm:max-w-[110px] md:max-w-[120px] lg:max-w-[140px] xl:max-w-none overflow-hidden">
+          <Link to="/" className="flex items-center gap-1.5 xs:gap-2 sm:gap-2 md:gap-2 lg:gap-2.5 xl:gap-3 group flex-shrink-0 min-w-0">
             <div className="h-6 xs:h-7 sm:h-8 md:h-9 lg:h-10 xl:h-11 2xl:h-12 w-auto flex items-center justify-center flex-shrink-0">
               <img 
                 src={theme === 'dark' ? "/white-01.svg" : "/black-01.-01.svg"} 
                 alt="Zeeniith Logo" 
-                className={`h-full w-auto max-w-full object-contain object-left transition-opacity ${
+                className={`h-full w-auto object-contain object-left transition-opacity ${
                   theme === 'dark' ? 'dark-logo group-hover:opacity-90' : 'group-hover:opacity-90'
                 }`}
-                style={{ maxWidth: '100%' }}
+                style={{ maxWidth: 'none', width: 'auto' }}
               />
             </div>
           </Link>

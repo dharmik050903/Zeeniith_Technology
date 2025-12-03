@@ -169,14 +169,14 @@ const Services = () => {
                 Smart, scalable, and secure solutions designed to accelerate your business growth
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contact">
-                <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link to="/contact" className="w-full sm:w-auto">
+                <button className="flex w-full sm:min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
                   <span className="truncate">Get Started Today</span>
                 </button>
               </Link>
-              <Link to="/portfolio">
-                <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-transparent border-2 border-white/80 text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-white/10 dark:hover:bg-white/20 transition-all backdrop-blur-sm">
+              <Link to="/portfolio" className="w-full sm:w-auto">
+                <button className="flex w-full sm:min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-transparent border-2 border-white/80 text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-white/10 dark:hover:bg-white/20 transition-all backdrop-blur-sm">
                   <span className="truncate">View Our Work</span>
                 </button>
               </Link>

@@ -293,29 +293,29 @@ const About = () => {
               {[
                  { year: '2025', title: 'Founded', desc: 'Zeeniith is born from a shared passion for code and innovation.', align: 'left' },
                  { year: '2025', title: 'First Major Client', desc: 'Partnered with a Fortune company, marking our entry into enterprise solutions.', align: 'right' },
-                 { year: '2026', title: 'Key Product Comming Soon', desc: 'Launching our first proprietary SaaS platform, revolutionizing how businesses manage their digital presence.', align: 'left' },
+                 { year: '2026', title: 'Key Product Coming Soon', desc: 'Launching our first proprietary SaaS platform, revolutionizing how businesses manage their digital presence.', align: 'left' },
               ].map((milestone, index) => (
                 <div
                   key={index}
                   ref={(el) => {
                     timelineItemsRef.current[index] = el
                   }}
-                  className={`relative z-10 w-full flex ${milestone.align === 'left' ? 'justify-start md:justify-start' : 'justify-end md:justify-end'} mb-12 group transition-all duration-700 ${
+                  className={`relative z-10 w-full flex ${milestone.align === 'left' ? 'justify-start md:justify-start' : 'justify-end md:justify-end'} mb-12 md:mb-16 group transition-all duration-700 ${
                     visibleItems[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                   }`}
                 >
-                  <div className={`w-full md:w-1/2 ${milestone.align === 'left' ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'} text-left`}>
-                    <div className={`bg-white dark:bg-[#1C2333] p-6 rounded-xl border transition-all hover:shadow-lg group-hover:scale-105 ${
+                  <div className={`w-full md:w-1/2 ${milestone.align === 'left' ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'} text-left relative`}>
+                    <div className={`bg-white dark:bg-[#1C2333] p-4 xs:p-5 sm:p-6 rounded-xl border transition-all hover:shadow-lg group-hover:scale-105 ${
                       visibleItems[index] 
                         ? 'border-primary/50 dark:border-primary/50 shadow-md' 
                         : 'border-gray-200 dark:border-[#282e39]'
                     }`}>
-                      <p className="font-bold text-primary text-lg mb-2">{milestone.year}</p>
-                      <h3 className="font-bold text-xl mb-2 text-slate-900 dark:text-white">{milestone.title}</h3>
+                      <p className="font-bold text-primary text-base xs:text-lg mb-2">{milestone.year}</p>
+                      <h3 className="font-bold text-base xs:text-lg sm:text-xl mb-2 text-slate-900 dark:text-white break-words">{milestone.title}</h3>
                       <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">{milestone.desc}</p>
                     </div>
                   </div>
-                  <div className={`absolute left-1/2 top-1/2 w-6 h-6 rounded-full border-4 border-white dark:border-[#1C2333] -translate-x-1/2 -translate-y-1/2 z-20 group-hover:scale-125 transition-all duration-500 ${
+                  <div className={`absolute left-1/2 top-6 md:top-1/2 w-5 h-5 xs:w-6 xs:h-6 rounded-full border-4 border-white dark:border-[#1C2333] -translate-x-1/2 md:-translate-y-1/2 z-20 group-hover:scale-125 transition-all duration-500 ${
                     visibleItems[index] 
                       ? 'bg-primary scale-110 shadow-lg shadow-primary/50' 
                       : 'bg-gray-300 dark:bg-gray-600 scale-100'
@@ -323,9 +323,10 @@ const About = () => {
                   {/* Mobile vertical line - animated */}
                   {index < 2 && (
                     <div 
-                      className="md:hidden absolute left-1/2 top-full w-0.5 -translate-x-1/2 transition-all duration-700"
+                      className="md:hidden absolute left-1/2 w-0.5 -translate-x-1/2 transition-all duration-700 z-10"
                       style={{
-                        height: visibleItems[index] ? '3rem' : '0',
+                        top: '1.5rem',
+                        height: visibleItems[index] ? 'calc(100% - 1.5rem)' : '0',
                         background: visibleItems[index] 
                           ? 'linear-gradient(to bottom, rgb(37, 106, 244), rgba(37, 106, 244, 0.6))' 
                           : 'transparent',

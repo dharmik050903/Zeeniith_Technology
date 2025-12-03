@@ -605,14 +605,14 @@ const Home = () => {
                   <p className="text-base md:text-lg text-white/90 mb-8">
             Let's build something amazing together. Whether you need custom software, a stunning website, a mobile app, or a powerful digital marketing strategy - we're here to help you succeed.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
-                      <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-8 bg-white text-primary text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link to="/contact" className="w-full sm:w-auto">
+                      <button className="flex w-full sm:min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-8 bg-white text-primary text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
                 <span className="truncate">Grow Your Business Now!</span>
               </button>
             </Link>
-            <Link to="/portfolio">
-                      <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-8 bg-transparent border-2 border-white text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-white/10 transition-colors">
+            <Link to="/portfolio" className="w-full sm:w-auto">
+                      <button className="flex w-full sm:min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-8 bg-transparent border-2 border-white text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-white/10 transition-colors">
                 <span className="truncate">View Our Work</span>
               </button>
             </Link>
