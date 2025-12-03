@@ -36,7 +36,7 @@ const Blog = () => {
       id: 1,
       title: 'The Future of Web Development: Trends to Watch in 2025',
       excerpt: 'Explore the latest trends shaping the future of web development, from AI-powered tools to progressive web apps and beyond.',
-      author: 'Alex Johnson',
+      author: 'Aditya Valaki',
       date: 'January 15, 2025',
       category: 'Web Development',
       readTime: '5 min read',
@@ -66,7 +66,7 @@ const Blog = () => {
       id: 4,
       title: 'Cloud Infrastructure: Optimizing Performance and Costs',
       excerpt: 'A comprehensive guide to optimizing your cloud infrastructure for better performance while managing costs effectively.',
-      author: 'Alex Johnson',
+      author: 'Aditya Valaki',
       date: 'December 28, 2024',
       category: 'Cloud & DevOps',
       readTime: '8 min read',
@@ -86,7 +86,7 @@ const Blog = () => {
       id: 6,
       title: 'Security Best Practices for Web Applications',
       excerpt: 'Essential security measures every developer should implement to protect web applications from common vulnerabilities and threats.',
-      author: 'Alex Johnson',
+      author: 'Aditya Valaki',
       date: 'December 15, 2024',
       category: 'Security',
       readTime: '6 min read',
@@ -200,10 +200,6 @@ const Blog = () => {
                     </div>
                     <div className="flex flex-col gap-4 p-6 flex-1 min-h-0">
                       <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
-                        <span className="flex items-center gap-1">
-                          <span className="material-symbols-outlined text-sm">person</span>
-                          {post.author}
-                        </span>
                         <span className="flex items-center gap-1">
                           <span className="material-symbols-outlined text-sm">calendar_today</span>
                           {post.date}

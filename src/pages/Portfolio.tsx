@@ -332,8 +332,8 @@ const Portfolio = () => {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 px-4">
             {[
-              { number: '150+', label: 'Projects Completed', icon: 'folder' },
-              { number: '50+', label: 'Industries Served', icon: 'business' },
+              { number: '50+', label: 'Projects Completed', icon: 'folder' },
+              { number: '10+', label: 'Industries Served', icon: 'business' },
               { number: '98%', label: 'Client Satisfaction', icon: 'star' },
               { number: '24/7', label: 'Support Available', icon: 'support_agent' },
             ].map((stat, index) => (

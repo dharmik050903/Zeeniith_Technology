@@ -224,7 +224,9 @@ const Services = () => {
 
         {/* Services Grid */}
         <div className={`grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 px-2 xs:px-3 sm:px-4 md:px-6 ${(activeTab === 'platform' ? servicesByPlatform : servicesByTechnology).length === 5 ? 'grid-5-items' : ''}`}>
-          {(activeTab === 'platform' ? servicesByPlatform : servicesByTechnology).map((service, index) => (
+          {(activeTab === 'platform' ? servicesByPlatform : servicesByTechnology).map((service, index) => {
+            const serviceWithFeatures = activeTab === 'platform' ? service as typeof servicesByPlatform[0] : null
+            return (
             <div
               key={index}
               className="group flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-slate-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl hover:-translate-y-1 h-full"
@@ -242,10 +244,10 @@ const Services = () => {
                 </p>
               </div>
             </div>
-            {service.features && (
+            {serviceWithFeatures?.features && (
               <div className="pt-2 border-t border-gray-200 dark:border-[#282e39] mt-auto">
                 <ul className="flex flex-wrap gap-2">
-                  {service.features.map((feature, idx) => (
+                  {serviceWithFeatures.features.map((feature: string, idx: number) => (
                     <li key={idx} className="text-xs px-3 py-1 bg-gray-100 dark:bg-white/5 rounded-full text-gray-600 dark:text-gray-400 whitespace-nowrap">
                       {feature}
                     </li>
@@ -254,7 +256,7 @@ const Services = () => {
               </div>
             )}
           </div>
-          ))}
+          )})}
         </div>
       </div>
 
@@ -277,16 +279,6 @@ const Services = () => {
                     <div className="w-20 h-20 rounded-full bg-primary/20 dark:bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 dark:group-hover:bg-primary/30 transition-all group-hover:scale-110 mx-auto relative z-10 border-4 border-white dark:border-[#1C2333]">
                       <span className="text-primary text-3xl font-bold">{step.number}</span>
                     </div>
-                    {/* Connecting Line - Desktop: Horizontal line from center of this circle to next */}
-                    {index < processSteps.length - 1 && (
-                      <div className="hidden lg:block absolute top-10 left-[calc(50%+2.5rem)] w-[calc(25%-5rem)] h-1 bg-primary/70 z-0">
-                        <div className="w-full h-full bg-gradient-to-r from-primary/80 via-primary/70 to-primary/60"></div>
-                      </div>
-                    )}
-                    {/* Mobile/Tablet: Vertical line below */}
-                    {index < processSteps.length - 1 && (
-                      <div className="lg:hidden absolute top-20 left-1/2 -translate-x-1/2 w-1 h-20 bg-gradient-to-b from-primary via-primary/60 to-transparent"></div>
-                    )}
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">{step.title}</h3>
                   <p className="text-xs text-slate-600 dark:text-gray-400 leading-relaxed">{step.desc}</p>

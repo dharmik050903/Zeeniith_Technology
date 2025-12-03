@@ -43,13 +43,9 @@ const Home = () => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const heroRef = useRef<HTMLDivElement>(null)
   const statsRef = useRef<HTMLDivElement>(null)
-  const processRef = useRef<HTMLDivElement>(null)
-  const stepRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)]
   const [isVisible, setIsVisible] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [shouldAnimateStats, setShouldAnimateStats] = useState(false)
-  const [hoveredStep, setHoveredStep] = useState<number | null>(null)
-  const [lineCoords, setLineCoords] = useState<Array<{ x1: number; y1: number; x2: number; y2: number }>>([])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -128,77 +124,6 @@ const Home = () => {
     }
   }, [])
 
-  // Calculate line coordinates when hovering over step 2, 3, or 4
-  useEffect(() => {
-    if (hoveredStep === null || (hoveredStep !== 1 && hoveredStep !== 2 && hoveredStep !== 3)) {
-      setLineCoords([])
-      return
-    }
-
-    const updateLineCoords = () => {
-      if (!processRef.current) {
-        return
-      }
-
-      const processRect = processRef.current.getBoundingClientRect()
-      const lines: Array<{ x1: number; y1: number; x2: number; y2: number }> = []
-
-      // Create lines connecting all steps sequentially up to the hovered step
-      // hoveredStep 1 = step 2 (index 1), hoveredStep 2 = step 3 (index 2), hoveredStep 3 = step 4 (index 3)
-      // For step 2: show line 1->2
-      // For step 3: show lines 1->2 and 2->3
-      // For step 4: show lines 1->2, 2->3, and 3->4
-
-      for (let i = 0; i < hoveredStep; i++) {
-        const fromIndex = i
-        const toIndex = i + 1
-
-        if (!stepRefs[fromIndex].current || !stepRefs[toIndex].current) {
-          continue
-        }
-
-        // Find the circle elements
-        const fromCircle = stepRefs[fromIndex].current!.querySelector('.rounded-full') as HTMLElement
-        const toCircle = stepRefs[toIndex].current!.querySelector('.rounded-full') as HTMLElement
-
-        if (!fromCircle || !toCircle) {
-          continue
-        }
-
-        const fromCircleRect = fromCircle.getBoundingClientRect()
-        const toCircleRect = toCircle.getBoundingClientRect()
-
-        // Determine if layout is horizontal (desktop) or vertical (mobile)
-        const isHorizontal = fromCircleRect.left < toCircleRect.left
-        
-        let x1, y1, x2, y2
-        
-        if (isHorizontal) {
-          // Horizontal layout: from right edge of from circle to left edge of to circle
-          x1 = fromCircleRect.left - processRect.left + fromCircleRect.width
-          y1 = fromCircleRect.top - processRect.top + fromCircleRect.height / 2
-          x2 = toCircleRect.left - processRect.left
-          y2 = toCircleRect.top - processRect.top + toCircleRect.height / 2
-        } else {
-          // Vertical layout: from bottom edge of from circle to top edge of to circle
-          x1 = fromCircleRect.left - processRect.left + fromCircleRect.width / 2
-          y1 = fromCircleRect.top - processRect.top + fromCircleRect.height
-          x2 = toCircleRect.left - processRect.left + toCircleRect.width / 2
-          y2 = toCircleRect.top - processRect.top
-        }
-
-        lines.push({ x1, y1, x2, y2 })
-      }
-
-      setLineCoords(lines)
-    }
-
-    updateLineCoords()
-
-    // Update on window resize
-    window.addEventListener('resize', updateLineCoords)
-    return () => window.removeEventListener('resize', updateLineCoords)
-  }, [hoveredStep])
 
   return (
     <>
@@ -455,10 +380,10 @@ const Home = () => {
       <div ref={statsRef} className="py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gray-100/50 dark:bg-white/5 rounded-xl mx-2 xs:mx-3 sm:mx-4 md:mx-6 lg:mx-8 my-4 xs:my-6 sm:my-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 xs:gap-6 sm:gap-8 md:gap-10 lg:gap-12 px-2 xs:px-3 sm:px-4 md:px-6">
           {[
-            { number: 200, suffix: '+', label: 'Projects Delivered' },
-            { number: 150, suffix: '+', label: 'Happy Clients' },
-            { number: 50, suffix: '+', label: 'Team Members' },
-            { number: 10, suffix: '+', label: 'Years Experience' },
+            { number: 50, suffix: '+', label: 'Projects Delivered' },
+            { number: 20, suffix: '+', label: 'Happy Clients' },
+            { number: 10, suffix: '+', label: 'Team Members' },
+            { number: 2, suffix: '+', label: 'Years Experience' },
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <h3 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-1 xs:mb-2">
@@ -576,40 +501,7 @@ const Home = () => {
             A proven methodology that ensures success from concept to launch.
           </p>
         </div>
-        <div ref={processRef} className="relative grid grid-cols-1 md:grid-cols-4 gap-6 px-4">
-          {/* SVG overlay for drawing lines */}
-          {lineCoords.length > 0 && (
-            <svg
-              className="absolute top-0 left-0 w-full h-full pointer-events-none z-10"
-              style={{ overflow: 'visible' }}
-            >
-              {lineCoords.map((coords, idx) => {
-                // Each line waits for the previous one to complete (0.6s) plus a pause (0.2s)
-                const animationDuration = 0.6
-                const pauseBetweenLines = 0.2
-                const delay = idx * (animationDuration + pauseBetweenLines)
-                
-                return (
-                  <line
-                    key={idx}
-                    x1={coords.x1}
-                    y1={coords.y1}
-                    x2={coords.x2}
-                    y2={coords.y2}
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    className="text-primary"
-                    style={{
-                      strokeDasharray: '1000',
-                      strokeDashoffset: '1000',
-                      animation: `drawLine ${animationDuration}s cubic-bezier(0.4, 0, 0.2, 1) ${delay}s forwards`,
-                      transition: 'opacity 0.3s ease-out',
-                    }}
-                  />
-                )
-              })}
-            </svg>
-          )}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 px-4">
           {[
             { number: '01', title: 'Discover', desc: 'We understand your goals and requirements' },
             { number: '02', title: 'Design', desc: 'We create beautiful, functional designs' },
@@ -618,19 +510,7 @@ const Home = () => {
           ].map((step, index) => (
             <div
               key={index}
-              ref={stepRefs[index]}
-              className="flex flex-col items-center text-center h-full relative z-20 cursor-pointer transition-all duration-300"
-              onMouseEnter={() => {
-                // Show lines for step 2 (index 1), step 3 (index 2), and step 4 (index 3)
-                if (index === 1 || index === 2 || index === 3) {
-                  setHoveredStep(index) // index 1 = step 2, index 2 = step 3, index 3 = step 4
-                }
-              }}
-              onMouseLeave={() => {
-                if (index === 1 || index === 2 || index === 3) {
-                  setHoveredStep(null)
-                }
-              }}
+              className="flex flex-col items-center text-center h-full transition-all duration-300"
             >
               <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mb-4 flex-shrink-0 transition-transform hover:scale-110">
                 <span className="text-primary text-2xl font-bold">{step.number}</span>

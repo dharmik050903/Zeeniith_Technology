@@ -103,9 +103,9 @@ const About = () => {
   // Timeline animation observer
   useEffect(() => {
     const milestones = [
-      { year: '2023', title: 'Founded', desc: 'Zeeniith is born from a shared passion for code and innovation.', align: 'left' },
-      { year: '2024', title: 'First Major Client', desc: 'Partnered with a Fortune 500 company, marking our entry into enterprise solutions.', align: 'right' },
-      { year: '2025', title: 'Key Product Launch', desc: 'Launched our first proprietary SaaS platform, revolutionizing how businesses manage their digital presence.', align: 'left' },
+      { year: '2025', title: 'Founded', desc: 'Zeeniith is born from a shared passion for code and innovation.', align: 'left' },
+      { year: '2025', title: 'First Major Client', desc: 'Partnered with a Fortune company, marking our entry into enterprise solutions.', align: 'right' },
+      { year: '2025', title: 'Key Product Comming Soon', desc: 'Launched our first proprietary SaaS platform, revolutionizing how businesses manage their digital presence.', align: 'left' },
     ]
 
     setVisibleItems(new Array(milestones.length).fill(false))
@@ -206,14 +206,19 @@ const About = () => {
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="flex-1">
                 <p className="text-sm md:text-base font-normal leading-relaxed text-gray-800 dark:text-gray-300 mb-4 text-justify">
-                  Founded with a vision to transform businesses through innovative technology, ZEENIITH has emerged as a trusted partner for 100+ companies across India. Our journey began with a simple belief: high-quality software development and digital marketing should be accessible to businesses of all sizes.
+                  Founded with a vision to transform businesses through innovative technology, ZEENIITH has emerged as a trusted partner for 20+ companies across India. Our journey began with a simple belief: high-quality software development and digital marketing should be accessible to businesses of all sizes.
                 </p>
                 <p className="text-sm md:text-base font-normal leading-relaxed text-gray-800 dark:text-gray-300 text-justify">
-                  Our team brings together expertise from Fortune 500 companies and successful startups, each member bringing unique perspectives that fuel our innovation and client success.
+                  Our team brings together expertise from companies and successful startups, each member bringing unique perspectives that fuel our innovation and client success.
                 </p>
               </div>
-              <div className="flex-1 w-full h-64 md:h-80 bg-gradient-to-br from-primary/20 to-primary/10 dark:from-primary/30 dark:to-primary/20 rounded-2xl flex items-center justify-center">
-                <span className="material-symbols-outlined text-6xl md:text-8xl text-primary/50">code</span>
+              <div className="flex-1 w-full h-64 md:h-80 rounded-2xl overflow-hidden">
+                <img
+                  src="/About_our_story.jpg"
+                  alt="Zeeniith Technology - Our Story"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
@@ -286,9 +291,9 @@ const About = () => {
               </div>
               
               {[
-                { year: '2023', title: 'Founded', desc: 'ZEENIITH is born from a shared passion for code and innovation.', align: 'left' },
-                { year: '2024', title: 'First Major Client', desc: 'Partnered with a Fortune 500 company, marking our entry into enterprise solutions.', align: 'right' },
-                { year: '2025', title: 'Key Product Launch', desc: 'Launched our first proprietary SaaS platform, revolutionizing how businesses manage their digital presence.', align: 'left' },
+                 { year: '2025', title: 'Founded', desc: 'Zeeniith is born from a shared passion for code and innovation.', align: 'left' },
+                 { year: '2025', title: 'First Major Client', desc: 'Partnered with a Fortune company, marking our entry into enterprise solutions.', align: 'right' },
+                 { year: '2026', title: 'Key Product Comming Soon', desc: 'Launching our first proprietary SaaS platform, revolutionizing how businesses manage their digital presence.', align: 'left' },
               ].map((milestone, index) => (
                 <div
                   key={index}
@@ -339,15 +344,14 @@ const About = () => {
             <h2 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] mb-12">
               Our Constellation
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-8 max-w-4xl mx-auto">
               {[
-                { name: 'Alex Johnson', role: 'Founder & CEO', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDqpQqF66IwQIaIrIO73eMBSFTweSiRXQ1Ez3AkCheIy7lrQs4lZI8vCvrbdyRKCKdIBmmbtilT9jBx1SETh9c4lxNZO90Nbr1x7UUBznn7vKDlQWzVWOzQRg4Gj4TZkHoJogGNdpFUIoy8o0vk1aFrHrmc7C6cYZ38elWPXlNb0bqjJkPvvI6WykpJSGy1vQrCdetStv904u9AjsA5nbykMlShhJh54yhIvOVzGFr7wTv9rm64ZdlcgcTCrbFHlR1V87OL-BpiJLlG' },
-                { name: 'Samantha Carter', role: 'Lead Designer', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD9z32-W80nA0j_e4Me-kSRS5sWUWdaTl-3toU8eL_MbvcvzDbgny7jX6jx2vYci5u1CRp7fWrmCXDhmVf0jo5X_MSfNkZZGX2b9Ww22LZDi5nrycF6EAp5ehwyC9NSMg-0Ey6YYn_o6iZuPRXalSHq7bc6HYhqdMnz-kjPcWmjIMHiXvOpCrd4cbaUyrTs64tBEsQWWho9UnfIvy_ZnpJmhSLJn3rdmsajc3mOjNTEYfzc_e7eXxVikabpwh_6hG4LKWwFPFKaiFXB' },
-                { name: 'David Chen', role: 'Head of Engineering', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBUJCPHqoaSKTPucwg5Hu9K91-lFhT--r-S6F6upjVgTfIaMeYLOH_pm_VDhJD-mJ1bK9B_mOuuX9RIdsDZcsuSD1mFSKbvd0chPYXm5yqq51gG_Er0i_rCAyRrLUvOSz74iapwLe-OlxBv9jFEVnRkLA56d5mX-PQO1fM_TdAfTVVTElzPjnwbBGinmUywQKH4c3JNNd0UHjangcSvoHvcNTLtsgAMY0g4Rq1DMIfi7qnHzuABg1e1S_wfxV74-KzXOtSLrDq46STU' },
+                { name: 'Dharmik Suthar', role: 'Founder & CEO', img: '/Dharmik_Suthar.png' },
+                { name: 'Aditya Valaki', role: 'Marketing & Sales Head', img: '/Aditya_Valaki.jpg' },
               ].map((member, index) => (
                 <div
                   key={index}
-                  className="group flex flex-col items-center text-center p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl hover:-translate-y-2 h-full"
+                  className="group flex flex-col items-center text-center p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl hover:-translate-y-2 w-full sm:w-auto sm:min-w-[280px] sm:max-w-[320px]"
                 >
                   <div className="relative mb-4 flex-shrink-0">
                     <img
@@ -405,10 +409,10 @@ const About = () => {
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {[
-                  { number: 100, suffix: '+', label: 'Projects Completed', icon: 'check_circle' },
+                  { number: 50, suffix: '+', label: 'Projects Completed', icon: 'check_circle' },
                   { number: 98, suffix: '%', label: 'Client Satisfaction Rating', icon: 'favorite' },
-                  { number: 200, suffix: '+', label: 'Employees & Contractors', icon: 'groups' },
-                  { number: 50, suffix: '+', label: 'Industries Served', icon: 'business' },
+                  { number: 10, suffix: '+', label: 'Employees & Contractors', icon: 'groups' },
+                  { number: 20, suffix: '+', label: 'Industries Served', icon: 'business' },
                 ].map((achievement, index) => (
                   <div key={index} className="text-center group">
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 text-primary mb-4 group-hover:bg-primary/30 transition-colors group-hover:scale-110">
@@ -438,7 +442,7 @@ const About = () => {
                     <span className="material-symbols-outlined text-primary text-4xl">business</span>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors mb-1">ZEENIITH Headquarters</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors mb-1">Zeeniith Office</h3>
                     <p className="text-base text-gray-600 dark:text-gray-400">Visit us at our office</p>
                   </div>
                 </div>
