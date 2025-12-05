@@ -136,7 +136,7 @@ The website supports both light and dark themes:
 
 - The original HTML files in `/Galaxy-website` are kept as design reference only
 - All images are loaded from external URLs (replace with local assets in production)
-- Form submission in Contact page currently logs to console (implement backend integration)
+- **Contact Form**: Email functionality is set up using EmailJS. See `EMAILJS_SETUP.md` for configuration instructions.
 
 ## 📄 License
 

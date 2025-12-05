@@ -1,6 +1,20 @@
 import { useState, FormEvent } from 'react'
 import SEO from '../components/SEO'
 
+// EmailJS will be loaded from CDN
+declare global {
+  interface Window {
+    emailjs: {
+      init: (options: { publicKey: string }) => void
+      send: (
+        serviceId: string,
+        templateId: string,
+        templateParams: Record<string, string>
+      ) => Promise<{ status: number; text: string }>
+    }
+  }
+}
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -8,14 +22,75 @@ const Contact = () => {
     email: '',
     message: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null
+    message: string
+  }>({ type: null, message: '' })
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    // Reset form
-    setFormData({ name: '', company: '', email: '', message: '' })
-    alert('Thank you for your message! We will get back to you soon.')
+    setIsSubmitting(true)
+    setSubmitStatus({ type: null, message: '' })
+
+    try {
+      // Replace these with your EmailJS credentials
+      // Get them from: https://www.emailjs.com/
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID'
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID'
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
+
+      // Check if credentials are configured
+      if (serviceId === 'YOUR_SERVICE_ID' || templateId === 'YOUR_TEMPLATE_ID' || publicKey === 'YOUR_PUBLIC_KEY') {
+        throw new Error('EmailJS credentials not configured. Please set up your EmailJS account and add credentials to .env file. See EMAILJS_SETUP.md for instructions.')
+      }
+
+      // Check if EmailJS library is loaded
+      if (!window.emailjs) {
+        throw new Error('EmailJS library not loaded. Please check your internet connection and refresh the page.')
+      }
+
+      // Initialize EmailJS with public key (required for v4+)
+      if (window.emailjs.init) {
+        window.emailjs.init({ publicKey })
+      }
+
+      // Send email using EmailJS
+      // Note: The recipient email (zeeniithinfo@gmail.com) must be configured 
+      // in your EmailJS template settings, not as a template parameter
+      const response = await window.emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          company: formData.company || 'Not provided',
+          message: formData.message,
+        }
+      )
+
+      if (response.status === 200) {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Thank you for your message! We will get back to you soon.',
+        })
+        setFormData({ name: '', company: '', email: '', message: '' })
+      } else {
+        throw new Error(`EmailJS returned status: ${response.status}`)
+      }
+    } catch (error) {
+      console.error('EmailJS error:', error)
+      const errorMessage = error instanceof Error 
+        ? error.message 
+        : 'Sorry, there was an error sending your message. Please try again or contact us directly at zeeniithinfo@gmail.com'
+      
+      setSubmitStatus({
+        type: 'error',
+        message: errorMessage,
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (
@@ -103,11 +178,25 @@ const Contact = () => {
                     required
                   />
                 </label>
+                {submitStatus.type && (
+                  <div
+                    className={`p-4 rounded-lg text-sm ${
+                      submitStatus.type === 'success'
+                        ? 'bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800'
+                        : 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-300 border border-red-200 dark:border-red-800'
+                    }`}
+                  >
+                    {submitStatus.message}
+                  </div>
+                )}
                 <button
-                  className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark"
+                  className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark disabled:opacity-50 disabled:cursor-not-allowed"
                   type="submit"
+                  disabled={isSubmitting}
                 >
-                  <span className="truncate">Send Message</span>
+                  <span className="truncate">
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </span>
                 </button>
               </form>
             </div>
