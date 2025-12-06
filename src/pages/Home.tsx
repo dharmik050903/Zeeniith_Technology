@@ -522,14 +522,14 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Blog Preview Section */}
+      {/* Success Stories Section */}
       <div className="py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24">
         <div className="text-center mb-6 xs:mb-8 sm:mb-10 md:mb-12 px-2 xs:px-4 sm:px-6">
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-[-0.015em] mb-2 xs:mb-3 sm:mb-4">
             Success Stories
           </h2>
         </div>
-        <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 px-2 xs:px-3 sm:px-4 md:px-6">
+        <div className="grid grid-cols-1 max-w-2xl mx-auto gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 px-2 xs:px-3 sm:px-4 md:px-6">
           {[
             {
               review: "Working with Zeeniith Technology on the Easy Go Overseas Advisor website was a genuinely smooth and positive experience; the team quickly understood my vision, turned it into a clean and professional design tailored for work permit and PR services, communicated clearly at every step, handled feedback patiently, and delivered a fast, mobile-friendly, and conversion-focused website that I’m truly proud to use for my business.",
@@ -553,14 +553,14 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Blog Preview Section */}
+      {/* Success Stories Section */}
       <div className="py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24">
         <div className="text-center mb-6 xs:mb-8 sm:mb-10 md:mb-12 px-2 xs:px-4 sm:px-6">
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-[-0.015em] mb-2 xs:mb-3 sm:mb-4">
-            Success Stories
+             Studies  
           </h2>
         </div>
-        <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 px-2 xs:px-3 sm:px-4 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 px-2 xs:px-3 sm:px-4 md:px-6 max-w-6xl mx-auto">
           {[
             {
               title: 'How Custom Software Helps Businesses Grow',

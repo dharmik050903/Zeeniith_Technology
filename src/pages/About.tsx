@@ -305,25 +305,25 @@ const About = () => {
                   }`}
                 >
                   <div className={`w-full md:w-1/2 ${milestone.align === 'left' ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'} text-left relative`}>
-                    <div className={`bg-white dark:bg-[#1C2333] p-4 xs:p-5 sm:p-6 rounded-xl border transition-all hover:shadow-lg group-hover:scale-105 ${
+                    <div className={`bg-white dark:bg-[#1C2333] p-4 xs:p-5 sm:p-6 rounded-xl border transition-all hover:shadow-lg group-hover:scale-105 min-w-0 ${
                       visibleItems[index] 
                         ? 'border-primary/50 dark:border-primary/50 shadow-md' 
                         : 'border-gray-200 dark:border-[#282e39]'
                     }`}>
-                      <p className="font-bold text-primary text-base xs:text-lg mb-2">{milestone.year}</p>
+                      <p className="font-bold text-primary text-base xs:text-lg mb-2 break-words">{milestone.year}</p>
                       <h3 className="font-bold text-base xs:text-lg sm:text-xl mb-2 text-slate-900 dark:text-white break-words">{milestone.title}</h3>
-                      <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">{milestone.desc}</p>
+                      <p className="text-xs xs:text-sm text-gray-600 dark:text-gray-400 leading-relaxed break-words whitespace-normal word-break-break-word" style={{ overflowWrap: 'break-word', wordBreak: 'break-word' }}>{milestone.desc}</p>
                     </div>
                   </div>
-                  <div className={`absolute left-1/2 top-6 md:top-1/2 w-5 h-5 xs:w-6 xs:h-6 rounded-full border-4 border-white dark:border-[#1C2333] -translate-x-1/2 md:-translate-y-1/2 z-20 group-hover:scale-125 transition-all duration-500 ${
+                  <div className={`hidden md:block absolute left-1/2 top-1/2 w-5 h-5 xs:w-6 xs:h-6 rounded-full border-4 border-white dark:border-[#1C2333] -translate-x-1/2 -translate-y-1/2 z-20 group-hover:scale-125 transition-all duration-500 ${
                     visibleItems[index] 
                       ? 'bg-primary scale-110 shadow-lg shadow-primary/50' 
                       : 'bg-gray-300 dark:bg-gray-600 scale-100'
                   }`}></div>
-                  {/* Mobile vertical line - animated */}
+                  {/* Mobile vertical line - hidden on mobile, only shown on desktop */}
                   {index < 2 && (
                     <div 
-                      className="md:hidden absolute left-1/2 w-0.5 -translate-x-1/2 transition-all duration-700 z-10"
+                      className="hidden md:block absolute left-1/2 w-0.5 -translate-x-1/2 transition-all duration-700 z-10"
                       style={{
                         top: '1.5rem',
                         height: visibleItems[index] ? 'calc(100% - 1.5rem)' : '0',

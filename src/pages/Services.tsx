@@ -169,14 +169,14 @@ const Services = () => {
                 Smart, scalable, and secure solutions designed to accelerate your business growth
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
               <Link to="/contact" className="w-full sm:w-auto">
                 <button className="flex w-full sm:min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">
                   <span className="truncate">Get Started Today</span>
                 </button>
               </Link>
               <Link to="/portfolio" className="w-full sm:w-auto">
-                <button className="flex w-full sm:min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-transparent border-2 border-white/80 text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-white/10 dark:hover:bg-white/20 transition-all backdrop-blur-sm">
+                <button className="flex w-full sm:min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-transparent border-2 border-white/80 text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-white/10 dark:hover:bg-white/20 hover:border-white transition-all backdrop-blur-sm">
                   <span className="truncate">View Our Work</span>
                 </button>
               </Link>
@@ -424,8 +424,8 @@ const Services = () => {
               Real results from real clients
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-4xl mx-auto">
-            {[
+          {(() => {
+            const caseStudies = [
               {
                 title: 'EasyGo Overseas Website',
                 client: 'Easy Go Overseas Advisor',
@@ -442,7 +442,17 @@ const Services = () => {
                 ],
                 testimonial: "Working with Zeeniith Technology on the Easy Go Overseas Advisor website was a genuinely smooth and positive experience. The team quickly understood my vision and delivered a fast, mobile-friendly, and conversion-focused website that I'm truly proud to use for my business."
               },
-            ].map((caseStudy, index) => (
+            ]
+            const count = caseStudies.length
+            const gridCols = count === 1 
+              ? 'grid-cols-1 max-w-4xl mx-auto' 
+              : count === 2 
+              ? 'grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto'
+              : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto'
+            
+            return (
+              <div className={`grid ${gridCols} gap-8`}>
+                {caseStudies.map((caseStudy, index) => (
               <div
                 key={index}
                 className="flex flex-col gap-6 p-6 md:p-8 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl group overflow-hidden h-full"
@@ -521,8 +531,10 @@ const Services = () => {
                   </a>
                 )}
               </div>
-            ))}
-          </div>
+                ))}
+              </div>
+            )
+          })()}
           <div className="text-center pt-8">
             <Link to="/portfolio">
               <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 mx-auto">
