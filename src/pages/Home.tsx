@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useRef, useEffect, useState } from 'react'
 import SEO from '../components/SEO'
+import ClientsMarquee from '../components/ClientsMarquee'
+import TestimonialsMarquee from '../components/TestimonialsMarquee'
 
 // Animated Counter Component
 const AnimatedCounter = ({ target, suffix = '', duration = 2000, shouldAnimate = false }: { target: number; suffix?: string; duration?: number; shouldAnimate?: boolean }) => {
@@ -135,7 +137,7 @@ const Home = () => {
       <div
         ref={heroRef}
         className="hero-section relative -mx-4 xs:-mx-6 sm:-mx-8 md:-mx-12 lg:-mx-16 xl:-mx-20 2xl:-mx-24 -mt-20 sm:-mt-24 md:-mt-28 lg:-mt-32 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-20 md:pb-32 min-h-screen flex items-center justify-center overflow-hidden z-0"
-        style={{ 
+        style={{
           minHeight: '100vh',
           width: '100vw',
           marginLeft: 'calc(-50vw + 50%)',
@@ -148,10 +150,9 @@ const Home = () => {
           loop
           muted
           playsInline
-          className={`absolute top-0 left-0 w-full h-full object-cover z-0 pointer-events-none ${
-            isVisible ? 'video-zoom-in' : 'scale-[1.3]'
-          }`}
-          style={{ 
+          className={`absolute top-0 left-0 w-full h-full object-cover z-0 pointer-events-none ${isVisible ? 'video-zoom-in' : 'scale-[1.3]'
+            }`}
+          style={{
             height: '100%',
             width: '100%',
             objectFit: 'cover',
@@ -164,9 +165,8 @@ const Home = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-black/40 dark:bg-black/60 z-10 pointer-events-none"></div>
         {/* Content */}
         <div
-          className={`relative z-20 flex min-h-[400px] xs:min-h-[480px] sm:min-h-[520px] md:min-h-[600px] lg:min-h-[650px] xl:min-h-[700px] flex-col gap-4 xs:gap-5 sm:gap-6 md:gap-8 items-center justify-center text-center p-4 xs:p-6 sm:p-8 md:p-10 ${
-            isVisible ? 'content-fade-in' : 'opacity-0'
-          }`}
+          className={`relative z-20 flex min-h-[400px] xs:min-h-[480px] sm:min-h-[520px] md:min-h-[600px] lg:min-h-[650px] xl:min-h-[700px] flex-col gap-4 xs:gap-5 sm:gap-6 md:gap-8 items-center justify-center text-center p-4 xs:p-6 sm:p-8 md:p-10 ${isVisible ? 'content-fade-in' : 'opacity-0'
+            }`}
         >
           <div className="flex flex-col gap-3 xs:gap-4 sm:gap-5 md:gap-6">
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-[-0.033em] text-white drop-shadow-lg px-2">
@@ -298,83 +298,10 @@ const Home = () => {
       </div>
 
       <div className="py-4 xs:py-6 sm:py-8 md:py-10 lg:py-12 xl:py-16">
-        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-[-0.015em] px-2 xs:px-4 sm:px-6 pb-4 xs:pb-6 sm:pb-8 pt-2 xs:pt-4 sm:pt-5 text-center">
-          Our Projects - Explore the Impact We've Created
-        </h2>
-        <div className="grid grid-cols-1 gap-3 xs:gap-4 sm:gap-5 md:gap-6 lg:gap-8 px-2 xs:px-3 sm:px-4 md:px-6 max-w-xl mx-auto">
-          {[
-            {
-              title: 'EasyGo Overseas',
-              category: 'Website Development',
-              description: 'Professional education consultancy website helping students pursue study abroad opportunities. Features comprehensive services including free counseling, university applications, visa assistance, loan support, and accommodation guidance for destinations like USA, UK, Canada, Australia, and more.',
-              result: 'Enhanced online presence, improved student engagement, streamlined service delivery',
-              technologies: 'Modern Web Technologies, Responsive Design, SEO Optimized',
-              alt: 'EasyGo Overseas Education Consultancy Website',
-              url: '/Easy-go-logo.jpg',
-              link: 'https://www.easygo-overseas.in/',
-            },
-          ].map((project, index) => {
-            const ProjectWrapper = project.link ? ({ children }: { children: React.ReactNode }) => (
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="group w-full">
-                {children}
-              </a>
-            ) : ({ children }: { children: React.ReactNode }) => (
-              <Link to="/portfolio" className="group w-full">
-                {children}
-              </Link>
-            )
-            
-            return (
-              <ProjectWrapper key={index}>
-                <div className="flex flex-col h-full bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] overflow-hidden hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl hover:-translate-y-1">
-                  <div
-                    className={`w-full bg-center bg-no-repeat overflow-hidden transform group-hover:scale-105 transition-transform duration-300 ${
-                      project.title === 'EasyGo Overseas' ? 'bg-contain bg-gray-50 dark:bg-gray-800 p-4 aspect-[3/1]' : 'bg-cover aspect-square'
-                    }`}
-                    style={{
-                      backgroundImage: `url("${project.url}")`,
-                      backgroundRepeat: 'no-repeat',
-                      backgroundSize: project.title === 'EasyGo Overseas' ? 'contain' : 'cover',
-                    }}
-                    role="img"
-                    aria-label={project.alt}
-                  />
-                <div className="p-3 sm:p-4 md:p-5 flex flex-col flex-grow">
-                  <div className="mb-2">
-                    <span className="inline-block text-xs font-semibold text-primary bg-primary/10 dark:bg-primary/20 px-2 py-1 rounded-md mb-2">
-                      {project.category}
-                    </span>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                  </div>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-4 flex-grow leading-relaxed text-justify">
-                    {project.description}
-                  </p>
-                  <div className="pt-3 border-t border-gray-200 dark:border-[#282e39] space-y-2">
-                    <div>
-                      <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Result:</p>
-                      <p className="text-xs font-bold text-primary">{project.result}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Technologies:</p>
-                      <p className="text-xs text-gray-600 dark:text-gray-400">{project.technologies}</p>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </ProjectWrapper>
-            )
-          })}
-        </div>
-        <div className="text-center pt-4 xs:pt-6 sm:pt-8 md:pt-10">
-          <Link to="/portfolio">
-            <button className="flex min-w-[120px] xs:min-w-[140px] sm:min-w-[160px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 xs:h-11 sm:h-12 md:h-14 px-4 xs:px-5 sm:px-6 md:px-8 bg-primary text-white text-xs xs:text-sm sm:text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity mx-auto">
-              <span className="truncate">View All Projects</span>
-            </button>
-          </Link>
-        </div>
+        <ClientsMarquee />
       </div>
+
+
 
       {/* Stats Section */}
       <div ref={statsRef} className="py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gray-100/50 dark:bg-white/5 rounded-xl mx-2 xs:mx-3 sm:mx-4 md:mx-6 lg:mx-8 my-4 xs:my-6 sm:my-8">
@@ -529,27 +456,8 @@ const Home = () => {
             Success Stories
           </h2>
         </div>
-        <div className="grid grid-cols-1 max-w-2xl mx-auto gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 px-2 xs:px-3 sm:px-4 md:px-6">
-          {[
-            {
-              review: "Working with Zeeniith Technology on the Easy Go Overseas Advisor website was a genuinely smooth and positive experience; the team quickly understood my vision, turned it into a clean and professional design tailored for work permit and PR services, communicated clearly at every step, handled feedback patiently, and delivered a fast, mobile-friendly, and conversion-focused website that I’m truly proud to use for my business.",
-              author: 'Alpesh Suthar',
-              company: 'Easy Go Overseas Advisor',
-            },
-          ].map((client, index) => (
-            <div
-              key={index}
-              className="flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl h-full"
-            >
-              <div className="text-center flex-shrink-0">
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{client.author}</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{client.company}</p>
-              </div>
-              <div className="flex-1 flex items-start">
-                <p className="text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed text-center">"{client.review}"</p>
-              </div>
-            </div>
-          ))}
+        <div className="max-w-7xl mx-auto">
+          <TestimonialsMarquee />
         </div>
       </div>
 
@@ -557,7 +465,7 @@ const Home = () => {
       <div className="py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24">
         <div className="text-center mb-6 xs:mb-8 sm:mb-10 md:mb-12 px-2 xs:px-4 sm:px-6">
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-[-0.015em] mb-2 xs:mb-3 sm:mb-4">
-             Studies  
+            Studies
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 px-2 xs:px-3 sm:px-4 md:px-6 max-w-6xl mx-auto">
@@ -585,9 +493,9 @@ const Home = () => {
           ].map((post, index) => (
             <div key={index} className="flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-lg h-full">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white">{post.title}</h3>
-                      <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed flex-grow">{post.excerpt}</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed flex-grow">{post.excerpt}</p>
               <Link to="/blog">
-                        <button className="text-primary font-semibold hover:underline text-xs mt-auto">
+                <button className="text-primary font-semibold hover:underline text-xs mt-auto">
                   {post.buttonText}
                 </button>
               </Link>
@@ -602,17 +510,17 @@ const Home = () => {
           <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-[-0.015em] mb-6">
             Ready to Bring Your Vision to Life?
           </h2>
-                  <p className="text-base md:text-lg text-white/90 mb-8">
+          <p className="text-base md:text-lg text-white/90 mb-8">
             Let's build something amazing together. Whether you need custom software, a stunning website, a mobile app, or a powerful digital marketing strategy - we're here to help you succeed.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/contact" className="w-full sm:w-auto">
-                      <button className="flex w-full sm:min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-8 bg-white text-primary text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+              <button className="flex w-full sm:min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-8 bg-white text-primary text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
                 <span className="truncate">Grow Your Business Now!</span>
               </button>
             </Link>
             <Link to="/portfolio" className="w-full sm:w-auto">
-                      <button className="flex w-full sm:min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-8 bg-transparent border-2 border-white text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-white/10 transition-colors">
+              <button className="flex w-full sm:min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-8 bg-transparent border-2 border-white text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-white/10 transition-colors">
                 <span className="truncate">View Our Work</span>
               </button>
             </Link>

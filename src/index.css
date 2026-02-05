@@ -67,63 +67,77 @@ body {
 
 /* Ticker animation - Smooth transitions */
 @keyframes ticker-animation {
-  0% { 
+  0% {
     transform: translateY(0);
     opacity: 1;
   }
-  18% { 
+
+  18% {
     transform: translateY(0);
     opacity: 1;
   }
-  20% { 
+
+  20% {
     transform: translateY(-1.75rem);
     opacity: 0.3;
   }
-  22% { 
+
+  22% {
     transform: translateY(-1.75rem);
     opacity: 1;
   }
-  38% { 
+
+  38% {
     transform: translateY(-1.75rem);
     opacity: 1;
   }
-  40% { 
+
+  40% {
     transform: translateY(-3.5rem);
     opacity: 0.3;
   }
-  42% { 
+
+  42% {
     transform: translateY(-3.5rem);
     opacity: 1;
   }
-  58% { 
+
+  58% {
     transform: translateY(-3.5rem);
     opacity: 1;
   }
-  60% { 
+
+  60% {
     transform: translateY(-5.25rem);
     opacity: 0.3;
   }
-  62% { 
+
+  62% {
     transform: translateY(-5.25rem);
     opacity: 1;
   }
-  78% { 
+
+  78% {
     transform: translateY(-5.25rem);
     opacity: 1;
   }
-  80% { 
+
+  80% {
     transform: translateY(-7rem);
     opacity: 0.3;
   }
-  82% { 
+
+  82% {
     transform: translateY(-7rem);
     opacity: 1;
   }
-  98% { 
+
+  98% {
     transform: translateY(-7rem);
     opacity: 1;
   }
-  100% { 
+
+  100% {
     transform: translateY(-8.75rem);
     opacity: 0.3;
   }
@@ -131,81 +145,317 @@ body {
 
 @media (min-width: 375px) {
   @keyframes ticker-animation {
-    0% { transform: translateY(0); opacity: 1; }
-    18% { transform: translateY(0); opacity: 1; }
-    20% { transform: translateY(-2rem); opacity: 0.3; }
-    22% { transform: translateY(-2rem); opacity: 1; }
-    38% { transform: translateY(-2rem); opacity: 1; }
-    40% { transform: translateY(-4rem); opacity: 0.3; }
-    42% { transform: translateY(-4rem); opacity: 1; }
-    58% { transform: translateY(-4rem); opacity: 1; }
-    60% { transform: translateY(-6rem); opacity: 0.3; }
-    62% { transform: translateY(-6rem); opacity: 1; }
-    78% { transform: translateY(-6rem); opacity: 1; }
-    80% { transform: translateY(-8rem); opacity: 0.3; }
-    82% { transform: translateY(-8rem); opacity: 1; }
-    98% { transform: translateY(-8rem); opacity: 1; }
-    100% { transform: translateY(-10rem); opacity: 0.3; }
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    18% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    20% {
+      transform: translateY(-2rem);
+      opacity: 0.3;
+    }
+
+    22% {
+      transform: translateY(-2rem);
+      opacity: 1;
+    }
+
+    38% {
+      transform: translateY(-2rem);
+      opacity: 1;
+    }
+
+    40% {
+      transform: translateY(-4rem);
+      opacity: 0.3;
+    }
+
+    42% {
+      transform: translateY(-4rem);
+      opacity: 1;
+    }
+
+    58% {
+      transform: translateY(-4rem);
+      opacity: 1;
+    }
+
+    60% {
+      transform: translateY(-6rem);
+      opacity: 0.3;
+    }
+
+    62% {
+      transform: translateY(-6rem);
+      opacity: 1;
+    }
+
+    78% {
+      transform: translateY(-6rem);
+      opacity: 1;
+    }
+
+    80% {
+      transform: translateY(-8rem);
+      opacity: 0.3;
+    }
+
+    82% {
+      transform: translateY(-8rem);
+      opacity: 1;
+    }
+
+    98% {
+      transform: translateY(-8rem);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(-10rem);
+      opacity: 0.3;
+    }
   }
 }
 
 @media (min-width: 640px) {
   @keyframes ticker-animation {
-    0% { transform: translateY(0); opacity: 1; }
-    18% { transform: translateY(0); opacity: 1; }
-    20% { transform: translateY(-2.25rem); opacity: 0.3; }
-    22% { transform: translateY(-2.25rem); opacity: 1; }
-    38% { transform: translateY(-2.25rem); opacity: 1; }
-    40% { transform: translateY(-4.5rem); opacity: 0.3; }
-    42% { transform: translateY(-4.5rem); opacity: 1; }
-    58% { transform: translateY(-4.5rem); opacity: 1; }
-    60% { transform: translateY(-6.75rem); opacity: 0.3; }
-    62% { transform: translateY(-6.75rem); opacity: 1; }
-    78% { transform: translateY(-6.75rem); opacity: 1; }
-    80% { transform: translateY(-9rem); opacity: 0.3; }
-    82% { transform: translateY(-9rem); opacity: 1; }
-    98% { transform: translateY(-9rem); opacity: 1; }
-    100% { transform: translateY(-11.25rem); opacity: 0.3; }
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    18% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    20% {
+      transform: translateY(-2.25rem);
+      opacity: 0.3;
+    }
+
+    22% {
+      transform: translateY(-2.25rem);
+      opacity: 1;
+    }
+
+    38% {
+      transform: translateY(-2.25rem);
+      opacity: 1;
+    }
+
+    40% {
+      transform: translateY(-4.5rem);
+      opacity: 0.3;
+    }
+
+    42% {
+      transform: translateY(-4.5rem);
+      opacity: 1;
+    }
+
+    58% {
+      transform: translateY(-4.5rem);
+      opacity: 1;
+    }
+
+    60% {
+      transform: translateY(-6.75rem);
+      opacity: 0.3;
+    }
+
+    62% {
+      transform: translateY(-6.75rem);
+      opacity: 1;
+    }
+
+    78% {
+      transform: translateY(-6.75rem);
+      opacity: 1;
+    }
+
+    80% {
+      transform: translateY(-9rem);
+      opacity: 0.3;
+    }
+
+    82% {
+      transform: translateY(-9rem);
+      opacity: 1;
+    }
+
+    98% {
+      transform: translateY(-9rem);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(-11.25rem);
+      opacity: 0.3;
+    }
   }
 }
 
 @media (min-width: 768px) {
   @keyframes ticker-animation {
-    0% { transform: translateY(0); opacity: 1; }
-    18% { transform: translateY(0); opacity: 1; }
-    20% { transform: translateY(-2.5rem); opacity: 0.3; }
-    22% { transform: translateY(-2.5rem); opacity: 1; }
-    38% { transform: translateY(-2.5rem); opacity: 1; }
-    40% { transform: translateY(-5rem); opacity: 0.3; }
-    42% { transform: translateY(-5rem); opacity: 1; }
-    58% { transform: translateY(-5rem); opacity: 1; }
-    60% { transform: translateY(-7.5rem); opacity: 0.3; }
-    62% { transform: translateY(-7.5rem); opacity: 1; }
-    78% { transform: translateY(-7.5rem); opacity: 1; }
-    80% { transform: translateY(-10rem); opacity: 0.3; }
-    82% { transform: translateY(-10rem); opacity: 1; }
-    98% { transform: translateY(-10rem); opacity: 1; }
-    100% { transform: translateY(-12.5rem); opacity: 0.3; }
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    18% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    20% {
+      transform: translateY(-2.5rem);
+      opacity: 0.3;
+    }
+
+    22% {
+      transform: translateY(-2.5rem);
+      opacity: 1;
+    }
+
+    38% {
+      transform: translateY(-2.5rem);
+      opacity: 1;
+    }
+
+    40% {
+      transform: translateY(-5rem);
+      opacity: 0.3;
+    }
+
+    42% {
+      transform: translateY(-5rem);
+      opacity: 1;
+    }
+
+    58% {
+      transform: translateY(-5rem);
+      opacity: 1;
+    }
+
+    60% {
+      transform: translateY(-7.5rem);
+      opacity: 0.3;
+    }
+
+    62% {
+      transform: translateY(-7.5rem);
+      opacity: 1;
+    }
+
+    78% {
+      transform: translateY(-7.5rem);
+      opacity: 1;
+    }
+
+    80% {
+      transform: translateY(-10rem);
+      opacity: 0.3;
+    }
+
+    82% {
+      transform: translateY(-10rem);
+      opacity: 1;
+    }
+
+    98% {
+      transform: translateY(-10rem);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(-12.5rem);
+      opacity: 0.3;
+    }
   }
 }
 
 @media (min-width: 1024px) {
   @keyframes ticker-animation {
-    0% { transform: translateY(0); opacity: 1; }
-    18% { transform: translateY(0); opacity: 1; }
-    20% { transform: translateY(-3rem); opacity: 0.3; }
-    22% { transform: translateY(-3rem); opacity: 1; }
-    38% { transform: translateY(-3rem); opacity: 1; }
-    40% { transform: translateY(-6rem); opacity: 0.3; }
-    42% { transform: translateY(-6rem); opacity: 1; }
-    58% { transform: translateY(-6rem); opacity: 1; }
-    60% { transform: translateY(-9rem); opacity: 0.3; }
-    62% { transform: translateY(-9rem); opacity: 1; }
-    78% { transform: translateY(-9rem); opacity: 1; }
-    80% { transform: translateY(-12rem); opacity: 0.3; }
-    82% { transform: translateY(-12rem); opacity: 1; }
-    98% { transform: translateY(-12rem); opacity: 1; }
-    100% { transform: translateY(-15rem); opacity: 0.3; }
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    18% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    20% {
+      transform: translateY(-3rem);
+      opacity: 0.3;
+    }
+
+    22% {
+      transform: translateY(-3rem);
+      opacity: 1;
+    }
+
+    38% {
+      transform: translateY(-3rem);
+      opacity: 1;
+    }
+
+    40% {
+      transform: translateY(-6rem);
+      opacity: 0.3;
+    }
+
+    42% {
+      transform: translateY(-6rem);
+      opacity: 1;
+    }
+
+    58% {
+      transform: translateY(-6rem);
+      opacity: 1;
+    }
+
+    60% {
+      transform: translateY(-9rem);
+      opacity: 0.3;
+    }
+
+    62% {
+      transform: translateY(-9rem);
+      opacity: 1;
+    }
+
+    78% {
+      transform: translateY(-9rem);
+      opacity: 1;
+    }
+
+    80% {
+      transform: translateY(-12rem);
+      opacity: 0.3;
+    }
+
+    82% {
+      transform: translateY(-12rem);
+      opacity: 1;
+    }
+
+    98% {
+      transform: translateY(-12rem);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(-15rem);
+      opacity: 0.3;
+    }
   }
 }
 
@@ -220,21 +470,35 @@ body {
 
 /* Marquee animation */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 @keyframes marquee2 {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
 .animate-marquee {
-  animation: marquee 20s linear infinite;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee-slow {
+  animation: marquee 80s linear infinite;
 }
 
 .animate-marquee2 {
-  animation: marquee2 20s linear infinite;
+  animation: marquee2 40s linear infinite;
 }
 
 /* Mobile menu animation */
@@ -265,6 +529,7 @@ body {
   from {
     transform: scale(1.3);
   }
+
   to {
     transform: scale(1);
   }
@@ -289,6 +554,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -305,9 +571,11 @@ body {
     stroke-dashoffset: 1000;
     opacity: 0;
   }
+
   20% {
     opacity: 1;
   }
+
   to {
     stroke-dashoffset: 0;
     opacity: 1;
@@ -332,11 +600,11 @@ body {
   grid-template-columns: repeat(3, 1fr) !important;
 }
 
-.grid-5-items > *:nth-child(4) {
+.grid-5-items>*:nth-child(4) {
   grid-column: 2;
 }
 
-.grid-5-items > *:nth-child(5) {
+.grid-5-items>*:nth-child(5) {
   grid-column: 3;
 }
 
@@ -347,15 +615,15 @@ body {
 
 /* For responsive: on smaller screens */
 @media (max-width: 1023px) {
+
   .grid-4-items,
   .grid-5-items,
   .grid-6-items {
     grid-template-columns: repeat(2, 1fr) !important;
   }
-  
-  .grid-5-items > *:nth-child(4),
-  .grid-5-items > *:nth-child(5) {
+
+  .grid-5-items>*:nth-child(4),
+  .grid-5-items>*:nth-child(5) {
     grid-column: auto;
   }
 }
-

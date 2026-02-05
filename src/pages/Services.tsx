@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useRef, useEffect, useState } from 'react'
 import SEO from '../components/SEO'
+import TestimonialsMarquee from '../components/TestimonialsMarquee'
 
 const Services = () => {
   const [activeTab, setActiveTab] = useState<'platform' | 'technology'>('platform')
@@ -151,12 +152,11 @@ const Services = () => {
         />
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60 dark:from-black/60 dark:via-black/70 dark:to-black/80 z-10"></div>
-        
+
         {/* Content */}
         <div className="relative z-20 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
-          <div className={`flex flex-col gap-6 md:gap-8 max-w-4xl transition-all duration-1000 ${
-            isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
+          <div className={`flex flex-col gap-6 md:gap-8 max-w-4xl transition-all duration-1000 ${isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
             <div className="flex flex-col gap-4">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 dark:bg-primary/30 backdrop-blur-sm rounded-full w-fit border border-primary/30">
                 <span className="material-symbols-outlined text-primary text-lg">rocket_launch</span>
@@ -201,21 +201,19 @@ const Services = () => {
           <div className="flex border-b border-slate-200 dark:border-[#3b4354] gap-4 xs:gap-6 sm:gap-8 max-w-5xl mx-auto justify-center overflow-x-auto">
             <button
               onClick={() => setActiveTab('platform')}
-              className={`flex items-center justify-center border-b-[3px] pb-3 xs:pb-4 pt-2 px-4 xs:px-6 transition-all flex-shrink-0 ${
-                activeTab === 'platform'
-                  ? 'border-b-primary text-primary'
-                  : 'border-b-transparent text-slate-500 dark:text-[#9ca6ba] hover:text-primary dark:hover:text-white'
-              }`}
+              className={`flex items-center justify-center border-b-[3px] pb-3 xs:pb-4 pt-2 px-4 xs:px-6 transition-all flex-shrink-0 ${activeTab === 'platform'
+                ? 'border-b-primary text-primary'
+                : 'border-b-transparent text-slate-500 dark:text-[#9ca6ba] hover:text-primary dark:hover:text-white'
+                }`}
             >
               <p className="text-xs xs:text-sm sm:text-base font-bold leading-normal tracking-[0.015em] whitespace-nowrap">By Platform</p>
             </button>
             <button
               onClick={() => setActiveTab('technology')}
-              className={`flex items-center justify-center border-b-[3px] pb-3 xs:pb-4 pt-2 px-4 xs:px-6 transition-all flex-shrink-0 ${
-                activeTab === 'technology'
-                  ? 'border-b-primary text-primary'
-                  : 'border-b-transparent text-slate-500 dark:text-[#9ca6ba] hover:text-primary dark:hover:text-white'
-              }`}
+              className={`flex items-center justify-center border-b-[3px] pb-3 xs:pb-4 pt-2 px-4 xs:px-6 transition-all flex-shrink-0 ${activeTab === 'technology'
+                ? 'border-b-primary text-primary'
+                : 'border-b-transparent text-slate-500 dark:text-[#9ca6ba] hover:text-primary dark:hover:text-white'
+                }`}
             >
               <p className="text-xs xs:text-sm sm:text-base font-bold leading-normal tracking-[0.015em] whitespace-nowrap">By Technology</p>
             </button>
@@ -227,36 +225,37 @@ const Services = () => {
           {(activeTab === 'platform' ? servicesByPlatform : servicesByTechnology).map((service, index) => {
             const serviceWithFeatures = activeTab === 'platform' ? service as typeof servicesByPlatform[0] : null
             return (
-            <div
-              key={index}
-              className="group flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-slate-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl hover:-translate-y-1 h-full"
-            >
-            <div className="flex items-start gap-4 flex-shrink-0">
-              <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center group-hover:bg-primary/20 dark:group-hover:bg-primary/30 transition-colors">
-                <span className="material-symbols-outlined text-primary text-3xl">{service.icon}</span>
+              <div
+                key={index}
+                className="group flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-slate-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl hover:-translate-y-1 h-full"
+              >
+                <div className="flex items-start gap-4 flex-shrink-0">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center group-hover:bg-primary/20 dark:group-hover:bg-primary/30 transition-colors">
+                    <span className="material-symbols-outlined text-primary text-3xl">{service.icon}</span>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-xs text-slate-600 dark:text-gray-400 leading-relaxed text-justify">
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
+                {serviceWithFeatures?.features && (
+                  <div className="pt-2 border-t border-gray-200 dark:border-[#282e39] mt-auto">
+                    <ul className="flex flex-wrap gap-2">
+                      {serviceWithFeatures.features.map((feature: string, idx: number) => (
+                        <li key={idx} className="text-xs px-3 py-1 bg-gray-100 dark:bg-white/5 rounded-full text-gray-600 dark:text-gray-400 whitespace-nowrap">
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-gray-400 leading-relaxed text-justify">
-                  {service.description}
-                </p>
-              </div>
-            </div>
-            {serviceWithFeatures?.features && (
-              <div className="pt-2 border-t border-gray-200 dark:border-[#282e39] mt-auto">
-                <ul className="flex flex-wrap gap-2">
-                  {serviceWithFeatures.features.map((feature: string, idx: number) => (
-                    <li key={idx} className="text-xs px-3 py-1 bg-gray-100 dark:bg-white/5 rounded-full text-gray-600 dark:text-gray-400 whitespace-nowrap">
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-          )})}
+            )
+          })}
         </div>
       </div>
 
@@ -395,152 +394,37 @@ const Services = () => {
                 stat: '4.8/5 Stars',
               },
             ].map((feature, index) => (
-               <div
-                 key={index}
-                 className="flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-slate-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl group h-full"
-               >
-                 <div className="flex items-center gap-4 flex-shrink-0">
-                   <div className="w-14 h-14 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center group-hover:bg-primary/20 dark:group-hover:bg-primary/30 transition-colors flex-shrink-0">
-                     <span className="material-symbols-outlined text-primary text-3xl">{feature.icon}</span>
-                   </div>
-                   <span className="text-xl font-bold text-primary flex-shrink-0">{feature.stat}</span>
-                 </div>
-                 <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">{feature.title}</h3>
-                 <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed flex-grow text-justify">{feature.description}</p>
-               </div>
+              <div
+                key={index}
+                className="flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-slate-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl group h-full"
+              >
+                <div className="flex items-center gap-4 flex-shrink-0">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center group-hover:bg-primary/20 dark:group-hover:bg-primary/30 transition-colors flex-shrink-0">
+                    <span className="material-symbols-outlined text-primary text-3xl">{feature.icon}</span>
+                  </div>
+                  <span className="text-xl font-bold text-primary flex-shrink-0">{feature.stat}</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">{feature.title}</h3>
+                <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed flex-grow text-justify">{feature.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Success Stories Section */}
+      {/* Client Testimonials Section */}
       <div className="py-12 md:py-20">
         <div className="px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-[-0.015em] mb-4">
-              Success Stories
+              Client Testimonials
             </h2>
             <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 max-w-4xl mx-auto">
-              Real results from real clients
+              What our clients say about working with us
             </p>
           </div>
-          {(() => {
-            const caseStudies = [
-              {
-                title: 'EasyGo Overseas Website',
-                client: 'Easy Go Overseas Advisor',
-                result: '40% increase in inquiries | Professional online presence established',
-                description: 'A comprehensive education consultancy website helping students navigate study abroad opportunities across USA, UK, Canada, Australia, New Zealand, Singapore, Europe, and Cyprus. The website features free counseling services, university application assistance, visa guidance, loan support, and accommodation information.',
-                image: '/Easy-go-logo.jpg',
-                link: 'https://www.easygo-overseas.in/',
-                metrics: [
-                  '40% increase in student inquiries within 3 months',
-                  '200+ monthly website visitors',
-                  '50% improvement in mobile user engagement',
-                  'Professional online presence established',
-                  'SEO optimized for better search visibility'
-                ],
-                testimonial: "Working with Zeeniith Technology on the Easy Go Overseas Advisor website was a genuinely smooth and positive experience. The team quickly understood my vision and delivered a fast, mobile-friendly, and conversion-focused website that I'm truly proud to use for my business."
-              },
-            ]
-            const count = caseStudies.length
-            const gridCols = count === 1 
-              ? 'grid-cols-1 max-w-4xl mx-auto' 
-              : count === 2 
-              ? 'grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto'
-              : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto'
-            
-            return (
-              <div className={`grid ${gridCols} gap-8`}>
-                {caseStudies.map((caseStudy, index) => (
-              <div
-                key={index}
-                className="flex flex-col gap-6 p-6 md:p-8 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl group overflow-hidden h-full"
-              >
-                <div className="w-full h-64 rounded-lg overflow-hidden bg-gray-50 dark:bg-gray-800 flex-shrink-0 flex items-center justify-center p-6">
-                  <img
-                    src={caseStudy.image}
-                    alt={caseStudy.title}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center justify-between flex-shrink-0">
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors min-w-0 flex-1">{caseStudy.title}</h3>
-                    <span className="text-primary text-sm font-bold bg-primary/10 dark:bg-primary/20 px-3 py-1 rounded-full flex-shrink-0 ml-2">{caseStudy.client}</span>
-                  </div>
-                  <p className="text-base text-slate-600 dark:text-gray-400 leading-relaxed">{caseStudy.description}</p>
-                </div>
-                
-                {/* Key Metrics */}
-                {caseStudy.metrics && (
-                  <div className="pt-4 border-t border-gray-200 dark:border-[#282e39]">
-                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
-                      <span className="material-symbols-outlined text-primary text-lg">analytics</span>
-                      Key Results
-                    </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {caseStudy.metrics.map((metric, i) => (
-                        <div key={i} className="flex items-start gap-2">
-                          <span className="material-symbols-outlined text-primary text-lg flex-shrink-0">check_circle</span>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">{metric}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Result Highlight */}
-                <div className="flex items-center gap-3 pt-4 border-t border-gray-200 dark:border-[#282e39] bg-primary/5 dark:bg-primary/10 rounded-lg p-4 flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 dark:bg-primary/30 flex items-center justify-center flex-shrink-0">
-                    <span className="material-symbols-outlined text-primary text-2xl">trending_up</span>
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Primary Result</p>
-                    <p className="text-base font-bold text-primary">{caseStudy.result}</p>
-                  </div>
-                </div>
-
-                {/* Client Info */}
-                <div className="pt-4 border-t border-gray-200 dark:border-[#282e39]">
-                  <div className="flex flex-col gap-3">
-                    <div className="flex-1">
-                      <p className="text-base font-semibold text-gray-900 dark:text-white">Alpesh Suthar</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Easy Go Overseas Advisor</p>
-                    </div>
-                    {caseStudy.testimonial && (
-                      <div className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-primary text-xl flex-shrink-0">format_quote</span>
-                        <p className="text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed">"{caseStudy.testimonial}"</p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Visit Website Link */}
-                {caseStudy.link && (
-                  <a
-                    href={caseStudy.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 mt-2 px-4 py-2 bg-primary text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity"
-                  >
-                    Visit Live Website
-                    <span className="material-symbols-outlined text-lg">open_in_new</span>
-                  </a>
-                )}
-              </div>
-                ))}
-              </div>
-            )
-          })()}
-          <div className="text-center pt-8">
-            <Link to="/portfolio">
-              <button className="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 mx-auto">
-                <span className="truncate">View All Case Studies</span>
-              </button>
-            </Link>
+          <div className="max-w-4xl mx-auto">
+            <TestimonialsMarquee />
           </div>
         </div>
       </div>
