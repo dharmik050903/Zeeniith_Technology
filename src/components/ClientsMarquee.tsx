@@ -36,6 +36,11 @@ const ClientsMarquee = () => {
       name: 'HOI',
       logo: '/HOI.png',
       alt: 'HOI'
+    },
+    {
+      name: 'QuikWink',
+      logo: '/QuikWink.png',
+      alt: 'QuikWink Logo'
     }
   ]
 

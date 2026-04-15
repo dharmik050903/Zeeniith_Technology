@@ -226,6 +226,34 @@ const Portfolio = () => {
       industry: 'Lifestyle / Marketing',
       year: '2024'
     },
+    {
+      title: 'QuikWink',
+      category: 'AI/ML & Technology Partnership',
+      alt: 'QuikWink - AI/ML Technology Partner',
+      url: '/QuikWink.png',
+      link: 'https://www.quikwink.com/',
+      description: 'A strategic technology partnership with QuikWink, an AI-first platform focused on building intelligent automation, machine learning pipelines, and smart digital products.',
+      challenge: 'QuikWink required a strong engineering partner to support the design and development of AI-driven interfaces, scalable backend infrastructure, and intelligent workflow automation to complement their core ML capabilities.',
+      solution: 'Joined forces as a technology partner, contributing web platform development, systems integration, and UI/UX for AI-powered products. Collaborated to ensure seamless delivery of data-intelligent, user-facing applications.',
+      technologies: ['AI/ML Integration', 'Python & FastAPI', 'React & Web Interfaces', 'Cloud Infrastructure', 'REST API Design', 'Data Pipeline Support'],
+      features: [
+        'AI-Powered Product Interfaces',
+        'ML Model Integration & Deployment',
+        'Intelligent Workflow Automation',
+        'Scalable Cloud-Ready Architecture',
+        'Data Visualization Dashboards',
+        'Real-time Processing Systems'
+      ],
+      results: [
+        'Accelerated AI product delivery',
+        'Smooth human-AI interaction layers',
+        'Scalable and cloud-optimized platforms',
+        'Successful co-developed intelligent solutions'
+      ],
+      client: 'QuikWink',
+      industry: 'Artificial Intelligence / Technology',
+      year: '2025'
+    },
   ]
 
   /* State for the currently selected project for the modal view */

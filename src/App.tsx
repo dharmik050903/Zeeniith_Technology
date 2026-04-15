@@ -9,6 +9,7 @@ import Services from './pages/Services'
 import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
 import Blog from './pages/Blog'
+import Partnership from './pages/Partnership'
 import BlogPost from './pages/BlogPost'
 import { useTheme } from './hooks/useTheme'
 
@@ -34,6 +35,7 @@ function App() {
                   <Route path="/services" element={<Services />} />
                   <Route path="/portfolio" element={<Portfolio />} />
                   <Route path="/blog" element={<Blog />} />
+                  <Route path="/partnership" element={<Partnership />} />
                   <Route path="/blog/:id" element={<BlogPost />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="*" element={<Home />} />
