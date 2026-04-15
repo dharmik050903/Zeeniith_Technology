@@ -3,12 +3,12 @@ import React from 'react'
 const TestimonialsMarquee = () => {
     const testimonials = [
         {
-            review: "Working with Zeeniith Technology on the Easy Go Overseas Advisor website was a genuinely smooth and positive experience; the team quickly understood my vision... and delivered a fast, mobile-friendly, and conversion-focused website that I’m truly proud to use for my business.",
+            review: "Working with Zeeniith Technology on the Easy Go Overseas Advisor website was a genuinely smooth and positive experience; the team quickly understood my vision... and delivered a fast, mobile-friendly, and conversion-focused website that I'm truly proud to use for my business.",
             author: 'Alpesh Suthar',
             company: 'Easy Go Overseas Advisor',
         },
         {
-            review: "Managing client relationships and internal tasks used to be a headache with disjointed tools. Zeeniith built us a custom ecosystem where everything talks to each other. It’s not just software; it’s peace of mind.",
+            review: "Managing client relationships and internal tasks used to be a headache with disjointed tools. Zeeniith built us a custom ecosystem where everything talks to each other. It's not just software; it's peace of mind.",
             author: 'Jay Bhatt',
             company: 'Digital Devas',
         },
@@ -39,53 +39,46 @@ const TestimonialsMarquee = () => {
         },
     ]
 
+    const Card = ({ client, keyId }: { client: typeof testimonials[0]; keyId: string }) => (
+        <div
+            key={keyId}
+            className="flex-shrink-0 w-[300px] sm:w-[360px] md:w-[400px] whitespace-normal"
+        >
+            <div className="flex flex-col gap-4 p-5 sm:p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl h-full">
+                <div className="flex items-center gap-3 border-b border-gray-100 dark:border-gray-800 pb-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-lg font-bold flex-shrink-0">
+                        {client.author.charAt(0)}
+                    </div>
+                    <div className="min-w-0">
+                        <h4 className="text-sm font-bold text-gray-900 dark:text-white truncate">{client.author}</h4>
+                        <p className="text-xs text-primary font-medium truncate">{client.company}</p>
+                    </div>
+                </div>
+                <div className="flex-1">
+                    <p className="text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed line-clamp-4">"{client.review}"</p>
+                </div>
+            </div>
+        </div>
+    )
+
     return (
-        <div className="w-full overflow-hidden bg-background-light dark:bg-background-dark py-4">
-            <div className="relative w-full overflow-hidden group flex">
-                <div className="flex animate-marquee-slow whitespace-nowrap gap-6 items-stretch shrink-0 min-w-full pr-6">
+        /* Break out of the padded layout container so the marquee spans full viewport width */
+        <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden py-4">
+            {/* Left fade */}
+            <div className="absolute top-0 left-0 w-16 sm:w-32 h-full bg-gradient-to-r from-background-light dark:from-background-dark to-transparent z-10 pointer-events-none" />
+            {/* Right fade */}
+            <div className="absolute top-0 right-0 w-16 sm:w-32 h-full bg-gradient-to-l from-background-light dark:from-background-dark to-transparent z-10 pointer-events-none" />
+
+            {/* Track */}
+            <div className="flex">
+                <div className="flex animate-marquee-slow gap-5 sm:gap-6 items-stretch shrink-0 pl-5 sm:pl-6">
                     {[...testimonials, ...testimonials].map((client, index) => (
-                        <div
-                            key={`testimonial-repeater-${index}`}
-                            className="flex-shrink-0 w-[280px] xs:w-[320px] sm:w-[360px] md:w-[400px] whitespace-normal"
-                        >
-                            <div className="flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl h-full">
-                                <div className="flex items-center gap-3 border-b border-gray-100 dark:border-gray-800 pb-3">
-                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl font-bold flex-shrink-0">
-                                        {client.author.charAt(0)}
-                                    </div>
-                                    <div className="min-w-0">
-                                        <h4 className="text-base font-bold text-gray-900 dark:text-white truncate">{client.author}</h4>
-                                        <p className="text-xs text-primary font-medium truncate">{client.company}</p>
-                                    </div>
-                                </div>
-                                <div className="flex-1">
-                                    <p className="text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed line-clamp-4">"{client.review}"</p>
-                                </div>
-                            </div>
-                        </div>
+                        <Card key={`a-${index}`} keyId={`a-${index}`} client={client} />
                     ))}
                 </div>
-                <div aria-hidden="true" className="flex animate-marquee-slow whitespace-nowrap gap-6 items-stretch shrink-0 min-w-full pr-6">
+                <div aria-hidden="true" className="flex animate-marquee-slow gap-5 sm:gap-6 items-stretch shrink-0 pl-5 sm:pl-6">
                     {[...testimonials, ...testimonials].map((client, index) => (
-                        <div
-                            key={`testimonial-repeater-2-${index}`}
-                            className="flex-shrink-0 w-[280px] xs:w-[320px] sm:w-[360px] md:w-[400px] whitespace-normal"
-                        >
-                            <div className="flex flex-col gap-4 p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl h-full">
-                                <div className="flex items-center gap-3 border-b border-gray-100 dark:border-gray-800 pb-3">
-                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl font-bold flex-shrink-0">
-                                        {client.author.charAt(0)}
-                                    </div>
-                                    <div className="min-w-0">
-                                        <h4 className="text-base font-bold text-gray-900 dark:text-white truncate">{client.author}</h4>
-                                        <p className="text-xs text-primary font-medium truncate">{client.company}</p>
-                                    </div>
-                                </div>
-                                <div className="flex-1">
-                                    <p className="text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed line-clamp-4">"{client.review}"</p>
-                                </div>
-                            </div>
-                        </div>
+                        <Card key={`b-${index}`} keyId={`b-${index}`} client={client} />
                     ))}
                 </div>
             </div>
