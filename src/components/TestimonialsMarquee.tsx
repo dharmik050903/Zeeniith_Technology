@@ -37,6 +37,11 @@ const TestimonialsMarquee = () => {
             author: 'Isha Parmar',
             company: 'House of Ish (HOI)',
         },
+        {
+            review: "Zeenitth built a custom AI automation system and integrated ML into our workflow that now handles everything in the background from predicting inventory needs to automating customer communication. Our team saves hours every single day.What impressed me most was that they understood our business before building anything. It didn't feel like a generic solution it felt built for us. Highly recommend Zeeniith Technology to any business ready to work smarter.",
+            author: "Shambhu Soni",
+            company: "Swastik Furniture"
+        }
     ]
 
     const Card = ({ client, keyId }: { client: typeof testimonials[0]; keyId: string }) => (
