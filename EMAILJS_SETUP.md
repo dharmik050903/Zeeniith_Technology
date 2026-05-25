@@ -20,9 +20,9 @@ This guide will help you set up EmailJS to enable email functionality on the Con
 1. Go to **Email Templates** in the dashboard
 2. Click **Create New Template**
 3. **IMPORTANT: Configure Email Settings**
-   - **To Email**: Enter `zeeniithinfo@gmail.com` (your receiving email address)
+   - **To Email**: Enter `info@zeeniith.in` (your receiving email address)
    - **From Name**: Enter `Zeeniith Contact Form` (or any name you prefer)
-   - **From Email**: Enter `zeeniithinfo@gmail.com` (your email - required for sending)
+   - **From Email**: Enter `info@zeeniith.in` (your email - required for sending)
    - **Reply To**: Enter `{{from_email}}` ⭐ **This is important!** This makes replies go to the person who filled out the form
 4. Use this template structure:
 
@@ -47,7 +47,7 @@ Reply to this email to respond directly to {{from_name}} ({{from_email}}).
 ⚠️ **Important Notes:**
 - The recipient email address must be set in the EmailJS template settings, NOT as a template parameter
 - Set **Reply To** to `{{from_email}}` so when you reply, it goes to the person who submitted the form
-- The **From Email** must be your own email (zeeniithinfo@gmail.com) for security reasons, but the **Reply To** will be the submitter's email
+- The **From Email** must be your own email (info@zeeniith.in) for security reasons, but the **Reply To** will be the submitter's email
 
 ## Step 4: Get Your Public Key
 
@@ -95,7 +95,7 @@ Reply to this email to respond directly to {{from_name}} ({{from_email}}).
   - Go to your EmailJS dashboard → Email Templates
   - Open your template (template_skge82q)
   - Find the **"To Email"** field in the template settings
-  - Enter your recipient email: `zeeniithinfo@gmail.com`
+  - Enter your recipient email: `info@zeeniith.in`
   - Save the template
   - The recipient email MUST be set in the template settings, NOT as a template parameter
 

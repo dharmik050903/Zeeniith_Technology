@@ -1,4 +1,3 @@
-import React from 'react'
 
 const ClientsMarquee = () => {
   const clients = [
@@ -41,10 +40,13 @@ const ClientsMarquee = () => {
       name: 'QuikWink',
       logo: '/QuikWink.png',
       alt: 'QuikWink Logo'
+    },
+    {
+      name: 'BuildrunKit',
+      logo: '/brk-logo-light.webp',
+      alt: 'BuildrunKit Logo'
     }
   ]
-
-
 
   return (
     <div className="w-full py-12 xs:py-16 sm:py-20 bg-background-light dark:bg-background-dark overflow-hidden">

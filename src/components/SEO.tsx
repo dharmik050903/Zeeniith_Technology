@@ -71,7 +71,7 @@ const SEO = ({ title, description, path = '', image = '' }: SEOProps) => {
       '@type': 'ContactPoint',
       telephone: '+916357120971',
       contactType: 'Customer Service',
-      email: 'zeeniithinfo@gmail.com',
+      email: 'info@zeeniith.in',
     },
   }
 

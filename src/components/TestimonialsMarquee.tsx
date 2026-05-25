@@ -1,7 +1,13 @@
-import React from 'react'
+
+interface Testimonial {
+    review: string
+    author: string
+    company: string
+    logo?: string
+}
 
 const TestimonialsMarquee = () => {
-    const testimonials = [
+    const testimonials: Testimonial[] = [
         {
             review: "Working with Zeeniith Technology on the Easy Go Overseas Advisor website was a genuinely smooth and positive experience; the team quickly understood my vision... and delivered a fast, mobile-friendly, and conversion-focused website that I'm truly proud to use for my business.",
             author: 'Alpesh Suthar',
@@ -41,19 +47,28 @@ const TestimonialsMarquee = () => {
             review: "Zeenitth built a custom AI automation system and integrated ML into our workflow that now handles everything in the background from predicting inventory needs to automating customer communication. Our team saves hours every single day.What impressed me most was that they understood our business before building anything. It didn't feel like a generic solution it felt built for us. Highly recommend Zeeniith Technology to any business ready to work smarter.",
             author: "Shambhu Soni",
             company: "Swastik Furniture"
+        },
+        {
+            review: "Zeeniith and Dharmik in particular really helped me get a fresh look and some new designs around getting my customers past their hesitance to use my platform. They helped me come up with a smoother onboarding process and some prescriptive dashboards that help the users decide where to go next based on their role, instead of leaving them wondering.",
+            author: "Brent Whistler",
+            company: "BuildrunKit",
+            // logo: "/brk-logo-light.webp"
         }
     ]
 
-    const Card = ({ client, keyId }: { client: typeof testimonials[0]; keyId: string }) => (
-        <div
-            key={keyId}
-            className="flex-shrink-0 w-[300px] sm:w-[360px] md:w-[400px] whitespace-normal"
-        >
+    const Card = ({ client }: { client: Testimonial }) => (
+        <div className="flex-shrink-0 w-[300px] sm:w-[360px] md:w-[400px] whitespace-normal">
             <div className="flex flex-col gap-4 p-5 sm:p-6 bg-white dark:bg-[#1C2333] rounded-xl border border-gray-200 dark:border-[#282e39] hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:shadow-xl h-full">
                 <div className="flex items-center gap-3 border-b border-gray-100 dark:border-gray-800 pb-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-lg font-bold flex-shrink-0">
-                        {client.author.charAt(0)}
-                    </div>
+                    {client.logo ? (
+                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0 overflow-hidden border border-gray-200 dark:border-gray-700">
+                            <img src={client.logo} alt={client.company} className="w-full h-full object-contain p-1" loading="lazy" />
+                        </div>
+                    ) : (
+                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-lg font-bold flex-shrink-0">
+                            {client.author.charAt(0)}
+                        </div>
+                    )}
                     <div className="min-w-0">
                         <h4 className="text-sm font-bold text-gray-900 dark:text-white truncate">{client.author}</h4>
                         <p className="text-xs text-primary font-medium truncate">{client.company}</p>
@@ -78,12 +93,12 @@ const TestimonialsMarquee = () => {
             <div className="flex">
                 <div className="flex animate-marquee-slow gap-5 sm:gap-6 items-stretch shrink-0 pl-5 sm:pl-6">
                     {[...testimonials, ...testimonials].map((client, index) => (
-                        <Card key={`a-${index}`} keyId={`a-${index}`} client={client} />
+                        <Card key={`a-${index}`} client={client} />
                     ))}
                 </div>
                 <div aria-hidden="true" className="flex animate-marquee-slow gap-5 sm:gap-6 items-stretch shrink-0 pl-5 sm:pl-6">
                     {[...testimonials, ...testimonials].map((client, index) => (
-                        <Card key={`b-${index}`} keyId={`b-${index}`} client={client} />
+                        <Card key={`b-${index}`} client={client} />
                     ))}
                 </div>
             </div>
