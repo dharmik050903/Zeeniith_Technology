@@ -1,13 +1,8 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "PUPPETEER_CACHE_DIR=\"$PWD/.cache/puppeteer\" npm run build",
   "outputDirectory": "dist",
   "devCommand": "npm run dev",
-  "installCommand": "npm install --legacy-peer-deps",
-  "framework": "vite",
-  "build": {
-    "env": {
-      "PUPPETEER_CACHE_DIR": ".cache/puppeteer"
-    }
-  }
+  "installCommand": "PUPPETEER_CACHE_DIR=\"$PWD/.cache/puppeteer\" npm install --legacy-peer-deps",
+  "framework": "vite"
 }
 
