@@ -11,6 +11,7 @@ import Contact from './pages/Contact'
 import Blog from './pages/Blog'
 import Partnership from './pages/Partnership'
 import BlogPost from './pages/BlogPost'
+import NotFound from './pages/NotFound'
 import { useTheme } from './hooks/useTheme'
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
                   <Route path="/partnership" element={<Partnership />} />
                   <Route path="/blog/:id" element={<BlogPost />} />
                   <Route path="/contact" element={<Contact />} />
-                  <Route path="*" element={<Home />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
             </div>

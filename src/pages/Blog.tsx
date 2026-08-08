@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useRef, useEffect, useState } from 'react'
 import SEO from '../components/SEO'
+import { blogPosts } from '../data/blogPosts'
 
 const Blog = () => {
   const blogRef = useRef<HTMLDivElement>(null)
@@ -30,69 +31,6 @@ const Blog = () => {
       }
     }
   }, [])
-
-  const blogPosts = [
-    {
-      id: 1,
-      title: 'The Future of Web Development: Trends to Watch in 2025',
-      excerpt: 'Explore the latest trends shaping the future of web development, from AI-powered tools to progressive web apps and beyond.',
-      author: 'Aditya Valaki',
-      date: 'January 15, 2025',
-      category: 'Web Development',
-      readTime: '5 min read',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC9IfUe8kIKhQGvfjaXXc2o3ET39FoHcpI5tq_aQg8UKTpy3AzUI9YAe1jWoXK3r17xt1QnTNyzwSPmbcCmOuz4dTqyoLNQ8eO921bbSBpRgZ5N2b3B5a19ZlXOI1wqrbSo4cV__Bg0oRt4TNUOuYt_8eyV0CW4UEuNulRsWDWanWaUNFUQ3e8igh9o1pmO_kFj7n-XpV-UjJ7q4jkuL0e0VAOjXQx1mEhzRqx58JqL4m-0W3qTLLxcxCRXfJubhIFTxQHXifonJtrA',
-    },
-    {
-      id: 2,
-      title: 'Building Scalable Mobile Apps: Best Practices',
-      excerpt: 'Learn the essential strategies for building mobile applications that can scale with your business growth and user base.',
-      author: 'David Chen',
-      date: 'January 10, 2025',
-      category: 'Mobile Development',
-      readTime: '7 min read',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDSzptqPerihEzmaFGncnl9eN1k0u0kFnkVCitHQZ2K55tPDcRoBvwqCeAYTbFreBg7CgEE9yG6k2rpn1LueJ6o8Fmtp9UD58IUOtag_rWfnWQCciUTP4D_MqkLuYh1-xpfgOU5p1AUDxwuEyJqHnIZp0WkJuGJRU-AiTtSDejRypHEYj-kGIJklvzjfVceVioXTWcoRouqic9nWe6yHcxtZMqPXHHP2EnLXGtrxk672b7qLG1V0ac7HMYYQm8DUrN5mUoKYOmWrPrE',
-    },
-    {
-      id: 3,
-      title: 'UI/UX Design Principles for Modern Applications',
-      excerpt: 'Discover the fundamental design principles that create exceptional user experiences in today\'s digital landscape.',
-      author: 'Samantha Carter',
-      date: 'January 5, 2025',
-      category: 'Design',
-      readTime: '6 min read',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDP10_ez_rfoOUCoS3C3sVBjtPso3nIsv5RsU_zUnklaHO8B632snpPMou_SGAYqhAFDIfnwH2c8civo3fQ7lkTl_dz5x26XPuwD4VcvXoxdSM81HF9g1ohPJFEkymx0de1dEbRkK5ltYom2vF_qgetDVEHCWl9c44S7h5yVJfAUtX7f2qEg1Mw62yibLFk6AGydnR5-1kGZRx6_ngMQ0cb8Wh1oJMT06PR4XDbkzGyvHiCJhuRh-pwnsCHjT7aeWYqx6KmlAi_Fyli',
-    },
-    {
-      id: 4,
-      title: 'Cloud Infrastructure: Optimizing Performance and Costs',
-      excerpt: 'A comprehensive guide to optimizing your cloud infrastructure for better performance while managing costs effectively.',
-      author: 'Aditya Valaki',
-      date: 'December 28, 2024',
-      category: 'Cloud & DevOps',
-      readTime: '8 min read',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBQmYISSztUNhS-i1ehuYvnKIYnN1TUGzOwmnpoIDXjL5YNY-HGp_G49WzDzfMuNg3xiy7PlE4G6Dl5e4xKT8IMwE5fs3i-DHeygiZi1twHL9bttWGXp1xYIviBkuQyhjHqZnu_44DbMp8xiyAh1w5dopLvEMF0G6zrpHFoAfIUB5x7dygH--m3TPV9tEgabpSD58-z67cPAhrxG8G_BV7mgpB68Ojf7rAQ14-EljKRKVXVjQBc6xb5ZfXi_GtEvr2zDx9ZBaLyvFwj',
-    },
-    {
-      id: 5,
-      title: 'The Role of AI in Modern Software Development',
-      excerpt: 'How artificial intelligence is revolutionizing software development processes and enabling developers to build better products faster.',
-      author: 'David Chen',
-      date: 'December 20, 2024',
-      category: 'AI & ML',
-      readTime: '9 min read',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCinT7mNfT_BBQ5qJd9Opx2JYL-YkNucOcRPg77GWFRBrHaiS24R-sXzhFkHxCylph0n0xH8FYMjlWwyPbyEmhqXfvqm37_ufzDd6sDOOHn7GrzP3RKPsdja42yLVKOeXBd5in5aAJKd8u4rRi5aFq42hLFxoFCkagXpQABXZqlH6ggIgnM9HfGGWav2GRBfS8R3i2Kq8AE4E2UqORsoX2Mvy1O8mk1kUsnpC7HiI-wz_te8iJsPiygJKrPbFuZ5rZPx1L69yX9amo4',
-    },
-    {
-      id: 6,
-      title: 'Security Best Practices for Web Applications',
-      excerpt: 'Essential security measures every developer should implement to protect web applications from common vulnerabilities and threats.',
-      author: 'Aditya Valaki',
-      date: 'December 15, 2024',
-      category: 'Security',
-      readTime: '6 min read',
-      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDrOtu2XbHeGH3BF9j8a2r1w8EW6YY-m9wYXqonMIiqqVp9aqnviZFl4WrCNxP9TnSCiIoPAoT-Lsj4X_-AbxXzzkSQWJi0jYnW9qpqwBhrVvPM9fr5xSW_56pfMycKG8O7ykIOcOq3jdmCAgX87QKfVi2qXjmd6EC85worCo93ljTfg9mRlMlzlRS_vpPeLWDQvT6l4KSBj-uPyvjj9UrMf2dbzTZMu2tS8g3Js62oy806exLCQAf7s_5If-zgpH7NdK570WXFFPks',
-    },
-  ]
 
   const categories = ['All', 'Web Development', 'Mobile Development', 'Design', 'Cloud & DevOps', 'AI & ML', 'Security']
   const [activeCategory, setActiveCategory] = useState('All')

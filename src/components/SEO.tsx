@@ -5,9 +5,10 @@ interface SEOProps {
   description: string
   path?: string
   image?: string
+  noindex?: boolean
 }
 
-const SEO = ({ title, description, path = '', image = '' }: SEOProps) => {
+const SEO = ({ title, description, path = '', image = '', noindex = false }: SEOProps) => {
   const siteUrl = 'https://zeeniith.com'
   const fullUrl = `${siteUrl}${path}`
   const ogImage = image || `${siteUrl}/og-image.jpg`
@@ -30,6 +31,7 @@ const SEO = ({ title, description, path = '', image = '' }: SEOProps) => {
     // Basic meta tags
     updateMetaTag('description', description)
     updateMetaTag('viewport', 'width=device-width, initial-scale=1.0')
+    updateMetaTag('robots', noindex ? 'noindex, nofollow' : 'index, follow')
 
     // Open Graph tags
     updateMetaTag('og:title', title, 'property')
@@ -52,7 +54,7 @@ const SEO = ({ title, description, path = '', image = '' }: SEOProps) => {
       document.head.appendChild(canonical)
     }
     canonical.setAttribute('href', fullUrl)
-  }, [title, description, path, ogImage, fullUrl])
+  }, [title, description, path, ogImage, fullUrl, noindex])
 
   // JSON-LD Schema
   const jsonLd = {

@@ -4,11 +4,10 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install --legacy-peer-deps",
   "framework": "vite",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+  "build": {
+    "env": {
+      "PUPPETEER_CACHE_DIR": ".cache/puppeteer"
     }
-  ]
+  }
 }
 

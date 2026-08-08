@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Puppeteer's downloaded Chromium binary (prerender build step)
+.cache
+
 # Environment variables
 .env
 .env.local
