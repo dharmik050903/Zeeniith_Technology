@@ -15,6 +15,9 @@ dist-ssr
 # Puppeteer's downloaded Chromium binary (prerender build step)
 .cache
 
+# TypeScript incremental build info
+*.tsbuildinfo
+
 # Environment variables
 .env
 .env.local
