@@ -1,8 +1,33 @@
 import { preview, type PreviewServer } from 'vite'
-import puppeteer, { type Browser } from 'puppeteer'
+import puppeteerCore, { type Browser } from 'puppeteer-core'
+import puppeteerFull from 'puppeteer'
+import chromium from '@sparticuz/chromium'
 import { writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { allRoutes } from '../src/routes'
+
+// Vercel's build image is a minimal Linux container missing the shared
+// libraries (libnspr4, libnss3, etc.) that Puppeteer's full desktop Chrome
+// download needs to run. @sparticuz/chromium ships a Chromium build made
+// for exactly that kind of restricted serverless/build environment, so we
+// only reach for it when actually running on Vercel; local dev keeps using
+// the full puppeteer package's own bundled Chrome, which @sparticuz/chromium
+// doesn't even provide binaries for on Windows/macOS.
+const IS_VERCEL = !!process.env.VERCEL
+
+async function launchBrowser(): Promise<Browser> {
+  if (IS_VERCEL) {
+    return puppeteerCore.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: false, // chromium.args already includes --headless='shell'
+    })
+  }
+  return puppeteerFull.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  })
+}
 
 const DIST_DIR = join(process.cwd(), 'dist')
 const MIN_BYTES = 15000
@@ -79,10 +104,7 @@ function writeRouteFile(route: string, html: string) {
 
 async function main() {
   const { server, baseUrl } = await startPreviewServer()
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  })
+  const browser = await launchBrowser()
 
   const results: CaptureResult[] = []
   const failedRoutes: string[] = []
