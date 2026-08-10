@@ -5,6 +5,14 @@
   "installCommand": "PUPPETEER_CACHE_DIR=\"$PWD/.cache/puppeteer\" npm install --legacy-peer-deps",
   "framework": "vite",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "zeeniith.in" }],
+      "destination": "https://www.zeeniith.in/:path*",
+      "permanent": true
+    }
+  ]
 }
 
