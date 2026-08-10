@@ -5,6 +5,7 @@ import chromium from '@sparticuz/chromium'
 import { writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { allRoutes } from '../src/routes'
+import { SITE_URL } from '../src/siteConfig'
 
 // Vercel's build image is a minimal Linux container missing the shared
 // libraries (libnspr4, libnss3, etc.) that Puppeteer's full desktop Chrome
@@ -77,21 +78,79 @@ async function capture(browser: Browser, baseUrl: string, path: string): Promise
   }
 }
 
-function verify(route: string, html: string): string[] {
+function extractTitle(html: string): string | null {
+  const m = html.match(/<title>([^<]*)<\/title>/i)
+  return m ? m[1].trim() : null
+}
+
+function extractDescription(html: string): string | null {
+  const m = html.match(/<meta[^>]+name="description"[^>]+content="([^"]*)"/i)
+  return m ? m[1].trim() : null
+}
+
+function extractCanonical(html: string): string | null {
+  const m = html.match(/<link[^>]+rel="canonical"[^>]+href="([^"]*)"/i)
+  return m ? m[1].trim() : null
+}
+
+function expectedCanonical(routePath: string): string {
+  return routePath === '/' ? `${SITE_URL}/` : `${SITE_URL}${routePath}`
+}
+
+// routePath is the real site path the canonical must self-reference (e.g.
+// "/about"). label is what gets printed -- for the 404 page these differ,
+// since its probe route isn't a real path but its canonical still must be.
+function verify(label: string, routePath: string, html: string): string[] {
   const problems: string[] = []
   const h1Count = (html.match(/<h1[\s>]/gi) || []).length
-  const hasDescription = /<meta[^>]+name="description"[^>]+content="[^"]{10,}"/i.test(html)
+  const title = extractTitle(html)
+  const description = extractDescription(html)
+  const canonical = extractCanonical(html)
   const byteSize = Buffer.byteLength(html, 'utf-8')
 
   if (h1Count < 1) problems.push(`no <h1> found (count=${h1Count})`)
-  if (!hasDescription) problems.push('no non-empty <meta name="description"> found')
+  if (!title) problems.push('no non-empty <title> found')
+  if (!description || description.length < 10) problems.push('no non-empty <meta name="description"> found')
   if (byteSize <= MIN_BYTES) problems.push(`body too small (${byteSize} bytes, need > ${MIN_BYTES})`)
 
-  if (problems.length === 0) {
-    console.log(`[prerender] OK   ${route}  h1=${h1Count} bytes=${byteSize}`)
-  } else {
-    console.error(`[prerender] FAIL ${route}  ${problems.join('; ')}`)
+  const expected = expectedCanonical(routePath)
+  if (!canonical) {
+    problems.push('no <link rel="canonical"> found')
+  } else if (canonical !== expected) {
+    problems.push(`canonical "${canonical}" does not self-reference "${expected}"`)
   }
+
+  if (problems.length === 0) {
+    console.log(`[prerender] OK   ${label}  h1=${h1Count} bytes=${byteSize}`)
+  } else {
+    console.error(`[prerender] FAIL ${label}  ${problems.join('; ')}`)
+  }
+  return problems
+}
+
+// Cross-route check: a route silently falling back to index.html's default
+// title/description (a prop-threading bug) wouldn't fail any single-route
+// check above, since the fallback text is itself non-empty. It only shows up
+// as a collision once you compare across the whole manifest.
+function verifyUniqueness(entries: { route: string; title: string | null; description: string | null }[]): string[] {
+  const problems: string[] = []
+  const byTitle = new Map<string, string[]>()
+  const byDescription = new Map<string, string[]>()
+
+  for (const { route, title, description } of entries) {
+    if (title) byTitle.set(title, [...(byTitle.get(title) ?? []), route])
+    if (description) byDescription.set(description, [...(byDescription.get(description) ?? []), route])
+  }
+
+  for (const [title, routes] of byTitle) {
+    if (routes.length > 1) problems.push(`duplicate <title> "${title}" shared by: ${routes.join(', ')}`)
+  }
+  for (const [description, routes] of byDescription) {
+    if (routes.length > 1) {
+      problems.push(`duplicate <meta description> "${description}" shared by: ${routes.join(', ')}`)
+    }
+  }
+
   return problems
 }
 
@@ -130,14 +189,32 @@ async function main() {
   for (const { route, html } of results) {
     if (route === '__404__') {
       writeFileSync(join(DIST_DIR, '404.html'), html, 'utf-8')
-      const problems = verify('/404 (not-found page)', html)
+      const problems = verify('/404 (not-found page)', '/404', html)
       if (problems.length > 0) failedRoutes.push('/404')
       continue
     }
 
     writeRouteFile(route, html)
-    const problems = verify(route, html)
+    const problems = verify(route, route, html)
     if (problems.length > 0) failedRoutes.push(route)
+  }
+
+  // Cross-route check, run after every route is captured. Excludes the 404
+  // page: it isn't part of the route manifest and is noindex'd anyway, so a
+  // title/description collision with it isn't the bug this guards against.
+  const manifestEntries = results
+    .filter((r) => r.route !== '__404__')
+    .map(({ route, html }) => ({
+      route,
+      title: extractTitle(html),
+      description: extractDescription(html),
+    }))
+  const uniquenessProblems = verifyUniqueness(manifestEntries)
+  if (uniquenessProblems.length > 0) {
+    for (const problem of uniquenessProblems) {
+      console.error(`[prerender] FAIL (cross-route)  ${problem}`)
+    }
+    failedRoutes.push('(cross-route uniqueness)')
   }
 
   if (failedRoutes.length > 0) {
