@@ -3,6 +3,8 @@
   "outputDirectory": "dist",
   "devCommand": "npm run dev",
   "installCommand": "PUPPETEER_CACHE_DIR=\"$PWD/.cache/puppeteer\" npm install --legacy-peer-deps",
-  "framework": "vite"
+  "framework": "vite",
+  "cleanUrls": true,
+  "trailingSlash": false
 }
 
