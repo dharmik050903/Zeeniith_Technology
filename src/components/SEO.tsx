@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { SITE_URL } from '../siteConfig'
 
 interface SEOProps {
   title: string
@@ -9,7 +10,7 @@ interface SEOProps {
 }
 
 const SEO = ({ title, description, path = '', image = '', noindex = false }: SEOProps) => {
-  const siteUrl = 'https://zeeniith.com'
+  const siteUrl = SITE_URL
   const fullUrl = `${siteUrl}${path}`
   const ogImage = image || `${siteUrl}/og-image.jpg`
 
@@ -63,7 +64,7 @@ const SEO = ({ title, description, path = '', image = '', noindex = false }: SEO
     name: 'Zeeniith',
     url: siteUrl,
     logo: `${siteUrl}/logo.png`,
-    description: 'We build digital universes. A software agency dedicated to creating innovative solutions.',
+    description: 'Custom software development company building web platforms, mobile apps, and AI-integrated products.',
     sameAs: [
       'https://twitter.com/zeeniith',
       'https://linkedin.com/company/zeeniith',
